@@ -1,0 +1,617 @@
+Last login: Sat Nov 23 01:04:38 on ttys002
+yahiro@UchidaYahironoMacBook docker-python % brew install docker-compose
+Updating Homebrew...
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+==> Auto-updated Homebrew!
+Updated 2 taps (homebrew/core and homebrew/cask).
+==> New Formulae
+adios2              govc                mysql-client@5.7    pylint
+awsume              grin                navi                rav1e
+bingrep             grin-wallet         nbdime              sentencepiece
+calceph             helm@2              ngt                 tdkjs
+cartridge-cli       javacc              node@12             tektoncd-cli
+cf-tool             jd                  oauth2l             toast
+comby               kind                onefetch            trader
+cups                liblouis            openjdk             ttyplot
+dvc                 manticoresearch     openjdk@11          tweak
+gimme-aws-creds     minikube            openjdk@12          virustotal-cli
+git-delta           mpi4py              pnpm                wal2json
+gmt@5               mpv                 prestosql
+==> Updated Formulae
+abcm2ps                                  llvm@6
+abcmidi                                  llvm@7
+ace                                      llvm@8
+ack                                      lmod
+acpica                                   logstash
+admesh                                   logtalk
+adwaita-icon-theme                       lsdvd
+aespipe                                  macvim
+aliyun-cli                               magic-wormhole
+amazon-ecs-cli                           mame
+ammonite-repl                            mapserver
+ampl-mp                                  mariadb
+angle-grinder                            mariadb-connector-c
+angular-cli                              mariadb-connector-odbc
+anime-downloader                         mariadb@10.1
+annie                                    mariadb@10.2
+ansible                                  mariadb@10.3
+ansible-lint                             maxwell
+ansifilter                               mdbook
+apache-arrow                             memcached
+apache-arrow-glib                        mercurial
+apache-flink                             mesa
+appscale-tools                           metricbeat
+arangodb                                 mgba
+arduino-cli                              micronaut
+armadillo                                mill
+arp-scan                                 minica
+artifactory                              mint
+asdf                                     mitmproxy
+ask-cli                                  mkcert
+aspell                                   mkl-dnn
+assimp                                   mkvtoolnix
+atlantis                                 mlt
+atlassian-cli                            mm-common
+auditbeat                                monero
+aws-cdk                                  mono-libgdiplus
+aws-google-auth                          mpd
+aws-okta                                 mpg123
+aws-sdk-cpp                              mpich
+awscli                                   mpop
+axel                                     msmtp
+azure-cli                                mvnvm
+babel                                    mydumper
+badtouch                                 mypy
+balena-cli                               mysql
+ballerina                                mysql++
+bazel                                    mysql-client
+bazelisk                                 mysql-connector-c++
+bedops                                   mysql-connector-c++@1.1
+berglas                                  mysql@5.6
+bettercap                                mysql@5.7
+bibutils                                 mytop
+bind                                     n
+binwalk                                  nanopb-generator
+bit                                      nats-server
+bitrise                                  neatvi
+black                                    needle
+blink1                                   neko
+blockhash                                neo4j
+bnd                                      neomutt
+bogofilter                               neovim
+boost-mpi                                netdata
+boost-python                             netlify-cli
+boost-python3                            newman
+boot-clj                                 nghttp2
+borgmatic                                nifi
+botan                                    nim
+breezy                                   nlohmann-json
+broot                                    node
+buildkit                                 node-build
+buku                                     node@10
+bulk_extractor                           node_exporter
+bullet                                   nodenv
+bundletool                               nomad
+bup                                      notmuch
+bvi                                      now-cli
+byacc                                    nspr
+byteman                                  nss
+bzt                                      ntl
+cabal-install                            ntopng
+caddy                                    nuget
+caf                                      numpy
+calcurse                                 nushell
+calicoctl                                nut
+cargo-completion                         nvm
+carla                                    ocrmypdf
+carrot2                                  octant
+carthage                                 octave
+cash-cli                                 offlineimap
+catch2                                   omega
+cayley                                   ooniprobe
+ccache                                   opa
+ccm                                      open-babel
+ceres-solver                             open-mpi
+certbot                                  open-zwave
+cfn-lint                                 openapi-generator
+cfr-decompiler                           openimageio
+cfssl                                    openrct2
+chafa                                    openssh
+chamber                                  openvpn
+charm-tools                              operator-sdk
+cheat                                    orc-tools
+check                                    osc
+checkbashisms                            osquery
+checkstyle                               packer
+chromaprint                              paket
+cimg                                     pango
+clac                                     parallel
+clamav                                   pcre2
+cli53                                    pdal
+cln                                      pdf2htmlex
+clojure                                  pdftk-java
+cmake                                    percona-server
+cmatrix                                  percona-toolkit
+cminpack                                 percona-xtrabackup
+cocoapods                                perl-build
+cointop                                  perltidy
+collectd                                 petsc
+composer                                 petsc-complex
+conan                                    pgcli
+confluent-platform                       pgloader
+console_bridge                           pgrouting
+consul-template                          php
+contentful-cli                           php-code-sniffer
+convox                                   php-cs-fixer
+coq                                      php@7.1
+couchdb                                  php@7.2
+csvq                                     phpstan
+curl                                     phpunit
+curl-openssl                             picard-tools
+cutter                                   pioneer
+cython                                   plantuml
+dark-mode                                platformio
+darksky-weather                          pmd
+dartsim                                  poco
+dasm                                     ponyc
+dav1d                                    postgresql@10
+dbhash                                   postgresql@9.4
+dcm2niix                                 postgresql@9.5
+dcmtk                                    postgresql@9.6
+dcos-cli                                 potrace
+deark                                    ppsspp
+deno                                     pqiv
+dependency-check                         pre-commit
+deployer                                 prettier
+devspace                                 procs
+dhall                                    profanity
+dhall-bash                               proguard
+dhall-json                               proj
+di                                       prometheus
+diamond                                  proteinortho
+diffoscope                               protobuf
+dita-ot                                  pspg
+dive                                     pulumi
+django-completion                        pushpin
+dmd                                      putty
+dmtx-utils                               puzzles
+dnscrypt-proxy                           py2cairo
+dnsperf                                  py3cairo
+dnsviz                                   pybind11
+docfx                                    pyenv
+docker                                   pyqt
+docker-completion                        pyside
+docker-compose                           python
+docker-compose-completion                python-yq
+docker-machine-nfs                       python@2
+docker-squash                            qbs
+doctl                                    qemu
+doitlive                                 qhull
+dovecot                                  qjackctl
+drafter                                  qpdf
+duplicity                                qscintilla2
+dust                                     qstat
+dvdauthor                                qt
+dvdbackup                                quex
+dxpy                                     quickjs
+dynare                                   quicktype
+eccodes                                  qxmpp
+elasticsearch                            rabbitmq
+elixir                                   rancher-cli
+embulk                                   rancid
+envconsul                                rclone
+eprover                                  rdesktop
+erlang                                   re2
+erlang@20                                redis
+erlang@21                                redpen
+eslint                                   remind
+esptool                                  reminiscence
+etcd                                     repo
+ethereum                                 reposurgeon
+exercism                                 residualvm
+exiftool                                 restic
+exploitdb                                restview
+eye-d3                                   rethinkdb
+faas-cli                                 rex
+fabio                                    rgbds
+fabric                                   rke
+fauna-shell                              rocksdb
+fdk-aac                                  rom-tools
+fdroidserver                             root
+ffmpeg                                   rpm
+ffmpeg@2.8                               rrdtool
+ffsend                                   ruby-build
+fibjs                                    rust
+fig2dev                                  rustup-init
+firebase-cli                             s3-backer
+flake8                                   s3ql
+flintrock                                s6
+flow                                     salt
+fluid-synth                              saxon
+flyway                                   sbcl
+fn                                       sbt
+folly                                    scamper
+fontforge                                scc
+fonttools                                scrcpy
+fop                                      screenfetch
+fork-cleaner                             scummvm
+fossil                                   scummvm-tools
+freerdp                                  sdlpop
+freeswitch                               serd
+frpc                                     serverless
+frps                                     sfk
+frugal                                   sfst
+fselect                                  shadowenv
+fstrm                                    shadowsocks-libev
+futhark                                  shairport-sync
+fwup                                     shared-mime-info
+fx                                       ship
+fzf                                      silk
+gatsby-cli                               simgrid
+gcc                                      singular
+gdal                                     sip
+gdcm                                     siril
+geckodriver                              sispmctl
+gedit                                    skaffold
+geoipupdate                              skafos
+gerbv                                    ski
+ghostscript                              skopeo
+ghq                                      slowhttptest
+giflib                                   smali
+gifski                                   snakemake
+git                                      snapcraft
+git-annex                                solr
+git-archive-all                          sonar-scanner
+git-cola                                 sonarqube
+git-quick-stats                          sonobuoy
+git-revise                               sops
+git-town                                 sord
+gitfs                                    source-highlight
+gitlab-runner                            source-to-image
+gitleaks                                 sourcedocs
+gitless                                  sourcekitten
+gitmoji                                  sparkey
+gitversion                               sparse
+gleam                                    spatialindex
+glib                                     sphinx-doc
+glooctl                                  spigot
+gmic                                     sqldiff
+gmime                                    sqlite
+gmt                                      sqlite-analyzer
+gnumeric                                 sqlmap
+gnunet                                   squid
+gnuradio                                 sratom
+go                                       sratoolkit
+go-bindata                               ssh-audit
+go@1.12                                  ssldump
+godep                                    stanford-corenlp
+goffice                                  stanford-ner
+golang-migrate                           starship
+gomplate                                 stella
+goofys                                   stellar-core
+goreleaser                               stgit
+gradle                                   stone-soup
+grafana                                  stormssh
+grails                                   stress-ng
+graph-tool                               subversion
+groonga                                  suil
+grpc                                     suite-sparse
+gtk-gnutella                             sundials
+gtkmm3                                   supervisor
+h2                                       suricata
+h3                                       svgo
+handbrake                                swagger-codegen
+hapi-fhir-cli                            swagger-codegen@2
+haproxy                                  swaks
+harfbuzz                                 swiftformat
+haxe                                     swiftlint
+hcloud                                   sxiv
+helmfile                                 syncthing
+helmsman                                 synscan
+hfstospell                               sysbench
+highlight                                taskell
+hlint                                    tcpdump
+html-xml-utils                           telegraf
+hub                                      teleport
+hugo                                     tepl
+hwloc                                    termshark
+hydra                                    termtosvg
+hyperfine                                terraform
+hyperscan                                terraformer
+hypre                                    terragrunt
+i2p                                      terrahub
+i2pd                                     texinfo
+ical-buddy                               tfenv
+ice                                      tflint
+imagemagick                              theharvester
+imagemagick@6                            thrift@0.9
+imageoptim-cli                           tig
+imapfilter                               tiger-vnc
+infer                                    tile38
+influxdb                                 tintin
+inlets                                   tmate
+innotop                                  tnef
+insect                                   tokei
+ios-webkit-debug-proxy                   tomcat
+ipbt                                     tomcat@8
+ipmiutil                                 topgrade
+ipopt                                    tor
+ispc                                     tox
+istioctl                                 traefik
+itk                                      traefik@1
+janet                                    triton
+jena                                     tundra
+jenkins                                  tunnel
+jenkins-lts                              twine-pypi
+jetty                                    two-lame
+jfrog-cli-go                             typescript
+jhipster                                 u-boot-tools
+jmeter                                   ucloud
+jo                                       um
+joplin                                   unbound
+jruby                                    uncrustify
+jsvc                                     ungit
+just                                     unoconv
+jvgrep                                   unrar
+k3d                                      urh
+kafka                                    urweb
+kallisto                                 uwsgi
+kitchen-sync                             v8
+kompose                                  vagrant-completion
+kops                                     vala
+kotlin                                   vamp-plugin-sdk
+kpcli                                    vapoursynth
+ksh                                      vapoursynth-imwri
+ktlint                                   vapoursynth-ocr
+kube-aws                                 vapoursynth-sub
+kubebuilder                              varnish
+kubecfg                                  vault
+kubectx                                  velero
+kubeless                                 verilator
+kubeprod                                 vert.x
+kubernetes-cli                           vfuse
+kubeseal                                 vim
+kyma-cli                                 vim@7.4
+lazydocker                               vips
+lazygit                                  virgil
+ledger                                   virtuoso
+legit                                    vit
+lego                                     vtk
+leptonica                                vulkan-headers
+lerna                                    watchexec
+libcapn                                  watson
+libcouchbase                             webpack
+libdvdnav                                whois
+libdvdread                               wireguard-go
+libedit                                  wireguard-tools
+libetpan                                 wireshark
+libevhtp                                 wolfssl
+libftdi                                  wp-cli
+libgraphqlparser                         wtf
+libheif                                  wtfutil
+libimobiledevice                         wxmaxima
+libjwt                                   wxpython
+libmaxminddb                             x265
+libming                                  xa
+libopenmpt                               xapian
+libpeas                                  xcodegen
+libphonenumber                           xonsh
+libplist                                 xorriso
+librdkafka                               xpdf
+librealsense                             xplanet
+libressl                                 xtensor
+librsvg                                  yacas
+librsync                                 yadm
+libsass                                  yafc
+libsodium                                yaml-cpp
+libspectre                               yamllint
+libssh                                   yarn
+libtasn1                                 ykman
+libtensorflow@1                          yle-dl
+libtiff                                  youtube-dl
+libtommath                               yq
+libvirt                                  zabbix
+libvoikko                                zbar
+libxlsxwriter                            zint
+libxml2                                  zita-convolver
+libxmlsec1                               zola
+libxslt                                  zookeeper
+libzdb                                   zrepl
+linkerd                                  zsh-history-substring-search
+links                                    zstd
+llvm                                     zydis
+==> Renamed Formulae
+bro -> zeek                kubernetes-helm -> helm    usbmuxd -> libusbmuxd
+jupyter -> jupyterlab      presto -> prestodb
+==> Deleted Formulae
+aiccu               erlang@17           llvm@4              raine
+ansible@1.9         erlang@19           mariadb@10.0        riak
+ansible@2.0         gmt@4               mysql-connector-c   ruby@2.0
+bdsup2sub           gmtl                mysql@5.5           wine
+cockroach           grib-api            openssl
+dcal                hana                pound
+
+==> Installing dependencies for docker-compose: libyaml, pkg-config, gdbm, openssl@1.1, readline, sqlite, xz and python
+==> Installing docker-compose dependency: libyaml
+==> Downloading https://homebrew.bintray.com/bottles/libyaml-0.2.2.catalina.bott
+######################################################################## 100.0%
+==> Pouring libyaml-0.2.2.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/libyaml/0.2.2: 9 files, 311.3KB
+==> Installing docker-compose dependency: pkg-config
+==> Downloading https://homebrew.bintray.com/bottles/pkg-config-0.29.2.catalina.
+==> Downloading from https://akamai.bintray.com/c0/c0a6927c8e404f6db8b14d6644a21
+######################################################################## 100.0%
+==> Pouring pkg-config-0.29.2.catalina.bottle.1.tar.gz
+🍺  /usr/local/Cellar/pkg-config/0.29.2: 11 files, 623KB
+==> Installing docker-compose dependency: gdbm
+==> Downloading https://homebrew.bintray.com/bottles/gdbm-1.18.1.catalina.bottle
+######################################################################## 100.0%
+==> Pouring gdbm-1.18.1.catalina.bottle.1.tar.gz
+🍺  /usr/local/Cellar/gdbm/1.18.1: 20 files, 602.8KB
+==> Installing docker-compose dependency: openssl@1.1
+==> Downloading https://homebrew.bintray.com/bottles/openssl@1.1-1.1.1d.catalina
+==> Downloading from https://akamai.bintray.com/d7/d7f992ebfd78f80828051f6dc6a1a
+######################################################################## 100.0%
+==> Pouring openssl@1.1-1.1.1d.catalina.bottle.tar.gz
+==> Caveats
+A CA file has been bootstrapped using certificates from the system
+keychain. To add additional certificates, place .pem files in
+  /usr/local/etc/openssl@1.1/certs
+
+and run
+  /usr/local/opt/openssl@1.1/bin/c_rehash
+
+openssl@1.1 is keg-only, which means it was not symlinked into /usr/local,
+because openssl/libressl is provided by macOS so don't link an incompatible version.
+
+If you need to have openssl@1.1 first in your PATH run:
+  echo 'export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find openssl@1.1 you may need to set:
+  export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+  export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+
+For pkg-config to find openssl@1.1 you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+
+==> Summary
+🍺  /usr/local/Cellar/openssl@1.1/1.1.1d: 7,983 files, 17.9MB
+==> Installing docker-compose dependency: readline
+==> Downloading https://homebrew.bintray.com/bottles/readline-8.0.1.catalina.bot
+==> Downloading from https://akamai.bintray.com/ab/ab3c966f4cae7d0f3ecc5688bb989
+######################################################################## 100.0%
+==> Pouring readline-8.0.1.catalina.bottle.tar.gz
+==> Caveats
+readline is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides the BSD libedit library, which shadows libreadline.
+In order to prevent conflicts when programs look for libreadline we are
+defaulting this GNU Readline installation to keg-only.
+
+For compilers to find readline you may need to set:
+  export LDFLAGS="-L/usr/local/opt/readline/lib"
+  export CPPFLAGS="-I/usr/local/opt/readline/include"
+
+For pkg-config to find readline you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/readline/lib/pkgconfig"
+
+==> Summary
+🍺  /usr/local/Cellar/readline/8.0.1: 48 files, 1.5MB
+==> Installing docker-compose dependency: sqlite
+==> Downloading https://homebrew.bintray.com/bottles/sqlite-3.30.1.catalina.bott
+==> Downloading from https://akamai.bintray.com/38/38c39121f7634ec563bb201b483f6
+######################################################################## 100.0%
+==> Pouring sqlite-3.30.1.catalina.bottle.tar.gz
+==> Caveats
+sqlite is keg-only, which means it was not symlinked into /usr/local,
+because macOS provides an older sqlite3.
+
+If you need to have sqlite first in your PATH run:
+  echo 'export PATH="/usr/local/opt/sqlite/bin:$PATH"' >> ~/.zshrc
+
+For compilers to find sqlite you may need to set:
+  export LDFLAGS="-L/usr/local/opt/sqlite/lib"
+  export CPPFLAGS="-I/usr/local/opt/sqlite/include"
+
+For pkg-config to find sqlite you may need to set:
+  export PKG_CONFIG_PATH="/usr/local/opt/sqlite/lib/pkgconfig"
+
+==> Summary
+🍺  /usr/local/Cellar/sqlite/3.30.1: 11 files, 3.9MB
+==> Installing docker-compose dependency: xz
+==> Downloading https://homebrew.bintray.com/bottles/xz-5.2.4.catalina.bottle.ta
+==> Downloading from https://akamai.bintray.com/5a/5aa90b77d5e772dacd38146bbb7ff
+######################################################################## 100.0%
+==> Pouring xz-5.2.4.catalina.bottle.tar.gz
+🍺  /usr/local/Cellar/xz/5.2.4: 92 files, 1MB
+==> Installing docker-compose dependency: python
+Warning: Building python from source:
+  The bottle needs the Apple Command Line Tools to be installed.
+  You can install them, if desired, with:
+    xcode-select --install
+
+xcrun: error: invalid active developer path (/Library/Developer/CommandLineTools), missing xcrun at: /Library/Developer/CommandLineTools/usr/bin/xcrun
+Error: An exception occurred within a child process:
+  CompilerSelectionError: python cannot be built with any available compilers.
+Install GNU's GCC:
+  brew install gcc
+
+
+yahiro@UchidaYahironoMacBook docker-python % mkdir docker
+yahiro@UchidaYahironoMacBook docker-python % cd docker
+yahiro@UchidaYahironoMacBook docker % docker-compose up -d --build
+Creating network "docker_default" with the default driver
+Building app
+Step 1/4 : FROM python:3.7
+3.7: Pulling from library/python
+c7b7d16361e0: Pull complete
+b7a128769df1: Pull complete
+1128949d0793: Pull complete
+667692510b70: Pull complete
+bed4ecf88e6a: Pull complete
+8a8c75f3996a: Pull complete
+6b809fc1d40e: Pull complete
+9aab0a84bd4a: Pull complete
+aa9356e83b15: Pull complete
+Digest: sha256:3e43fdcd319d32db420fa0b7cdff9920650455fe5946616291eb4d19af0c937e
+Status: Downloaded newer image for python:3.7
+ ---> 3786ccc05c04
+Step 2/4 : ADD . /var/www/html
+ ---> 0a789f5aeafd
+Step 3/4 : WORKDIR /var/www/html
+ ---> Running in 24909770cf41
+Removing intermediate container 24909770cf41
+ ---> 52d68a8356ee
+Step 4/4 : RUN pip install -r ./requirements.txt
+ ---> Running in 98e4a3c52cb9
+ERROR: Could not open requirements file: [Errno 2] No such file or directory: './requirements.txt'
+ERROR: Service 'app' failed to build: The command '/bin/sh -c pip install -r ./requirements.txt' returned a non-zero code: 1
+yahiro@UchidaYahironoMacBook docker % docker-compose up -d --build
+Building app
+Step 1/4 : FROM python:3.7
+ ---> 3786ccc05c04
+Step 2/4 : ADD . /var/www/html
+ ---> 8b238f003721
+Step 3/4 : WORKDIR /var/www/html
+ ---> Running in b67c2a43cb12
+Removing intermediate container b67c2a43cb12
+ ---> 29d7f8aff5a9
+Step 4/4 : RUN pip install -r ./requirements.txt
+ ---> Running in fd0ad68745f6
+ERROR: Could not open requirements file: [Errno 2] No such file or directory: './requirements.txt'
+ERROR: Service 'app' failed to build: The command '/bin/sh -c pip install -r ./requirements.txt' returned a non-zero code: 1
+yahiro@UchidaYahironoMacBook docker % docker-compose up -d --build
+Building app
+Step 1/4 : FROM python:3.7
+ ---> 3786ccc05c04
+Step 2/4 : ADD . /var/www/html
+ ---> bc6822837ff9
+Step 3/4 : WORKDIR /var/www/html
+ ---> Running in f222a00543d8
+Removing intermediate container f222a00543d8
+ ---> 3f36bee88450
+Step 4/4 : RUN pip install -r ./requirements.txt
+ ---> Running in 46967c872ebb
+ERROR: Could not find a version that satisfies the requirement django==3 (from -r ./requirements.txt (line 1)) (from versions: 1.1.3, 1.1.4, 1.2, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.2.6, 1.2.7, 1.3, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5, 1.3.6, 1.3.7, 1.4, 1.4.1, 1.4.2, 1.4.3, 1.4.4, 1.4.5, 1.4.6, 1.4.7, 1.4.8, 1.4.9, 1.4.10, 1.4.11, 1.4.12, 1.4.13, 1.4.14, 1.4.15, 1.4.16, 1.4.17, 1.4.18, 1.4.19, 1.4.20, 1.4.21, 1.4.22, 1.5, 1.5.1, 1.5.2, 1.5.3, 1.5.4, 1.5.5, 1.5.6, 1.5.7, 1.5.8, 1.5.9, 1.5.10, 1.5.11, 1.5.12, 1.6, 1.6.1, 1.6.2, 1.6.3, 1.6.4, 1.6.5, 1.6.6, 1.6.7, 1.6.8, 1.6.9, 1.6.10, 1.6.11, 1.7, 1.7.1, 1.7.2, 1.7.3, 1.7.4, 1.7.5, 1.7.6, 1.7.7, 1.7.8, 1.7.9, 1.7.10, 1.7.11, 1.8a1, 1.8b1, 1.8b2, 1.8rc1, 1.8, 1.8.1, 1.8.2, 1.8.3, 1.8.4, 1.8.5, 1.8.6, 1.8.7, 1.8.8, 1.8.9, 1.8.10, 1.8.11, 1.8.12, 1.8.13, 1.8.14, 1.8.15, 1.8.16, 1.8.17, 1.8.18, 1.8.19, 1.9a1, 1.9b1, 1.9rc1, 1.9rc2, 1.9, 1.9.1, 1.9.2, 1.9.3, 1.9.4, 1.9.5, 1.9.6, 1.9.7, 1.9.8, 1.9.9, 1.9.10, 1.9.11, 1.9.12, 1.9.13, 1.10a1, 1.10b1, 1.10rc1, 1.10, 1.10.1, 1.10.2, 1.10.3, 1.10.4, 1.10.5, 1.10.6, 1.10.7, 1.10.8, 1.11a1, 1.11b1, 1.11rc1, 1.11, 1.11.1, 1.11.2, 1.11.3, 1.11.4, 1.11.5, 1.11.6, 1.11.7, 1.11.8, 1.11.9, 1.11.10, 1.11.11, 1.11.12, 1.11.13, 1.11.14, 1.11.15, 1.11.16, 1.11.17, 1.11.18, 1.11.20, 1.11.21, 1.11.22, 1.11.23, 1.11.24, 1.11.25, 1.11.26, 2.0a1, 2.0b1, 2.0rc1, 2.0, 2.0.1, 2.0.2, 2.0.3, 2.0.4, 2.0.5, 2.0.6, 2.0.7, 2.0.8, 2.0.9, 2.0.10, 2.0.12, 2.0.13, 2.1a1, 2.1b1, 2.1rc1, 2.1, 2.1.1, 2.1.2, 2.1.3, 2.1.4, 2.1.5, 2.1.7, 2.1.8, 2.1.9, 2.1.10, 2.1.11, 2.1.12, 2.1.13, 2.1.14, 2.2a1, 2.2b1, 2.2rc1, 2.2, 2.2.1, 2.2.2, 2.2.3, 2.2.4, 2.2.5, 2.2.6, 2.2.7, 3.0a1, 3.0b1, 3.0rc1)
+ERROR: No matching distribution found for django==3 (from -r ./requirements.txt (line 1))
+ERROR: Service 'app' failed to build: The command '/bin/sh -c pip install -r ./requirements.txt' returned a non-zero code: 1
+yahiro@UchidaYahironoMacBook docker % docker-compose up -d --build
+Building app
+Step 1/4 : FROM python:3.7
+ ---> 3786ccc05c04
+Step 2/4 : ADD . /var/www/html
+ ---> 2fc3f94b8be3
+Step 3/4 : WORKDIR /var/www/html
+ ---> Running in 5ddc100de95e
+Removing intermediate container 5ddc100de95e
+ ---> 0e183efc3e38
+Step 4/4 : RUN pip install -r ./requirements.txt
+ ---> Running in 22392d149e03
+Removing intermediate container 22392d149e03
+ ---> 607de95fbf7f
+Successfully built 607de95fbf7f
+Successfully tagged python:3.7
+Creating python ... done
+yahiro@UchidaYahironoMacBook docker % docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
+fe756f045d62        python:3.7          "python3"           23 seconds ago      Up 21 seconds                           python
+yahiro@UchidaYahironoMacBook docker %    

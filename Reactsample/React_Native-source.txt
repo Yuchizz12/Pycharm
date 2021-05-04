@@ -1,0 +1,5585 @@
+﻿React Native入門
+
+
+
+
+掲載リスト
+
+
+
+
+リスト2-1
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+
+
+export default class App extends Component {
+  render() {
+    return (
+      <View>
+        <Text>
+          Hello Expo Snack!!
+          Hello Expo Snack!!
+          Hello Expo Snack!!
+        </Text>
+      </View>
+    );
+  }
+}
+
+
+
+
+リスト2-2
+export default class App extends Component {
+  render() {
+    var msg = 'Hello Expo Snack!!';
+    return (
+      <View>
+        <Text>{msg}</Text>
+        <Text>{msg}</Text>
+        <Text>{msg}</Text>
+      </View>
+    );
+  }
+}
+
+
+
+
+リスト2-3
+export default class App extends Component {
+  render() {
+    return (
+      <View style={{padding:50}}>
+        <Text style={{color:'red', fontSize:36}}>Hello!</Text>
+        <Text style={{color:'blue', fontSize:24}}>
+          This is sample message.
+          これは、サンプルのメッセージです。
+        </Text>
+      </View>
+    );
+  }
+}
+
+
+
+
+リスト2-4
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native'; // StyleSheet を追加
+
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Text style={styles.subtitle}>
+          Welcome to Expo snack.
+        </Text>
+        <Text style={styles.message}>
+          これは、日本語のサンプルメッセージです。
+        </Text>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 30
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    textAlign:'center',
+    fontSize:60,
+    fontWeight:'bold'
+  },
+  subtitle: {
+    padding: 10,
+    color:'blue', 
+    fontSize:20,
+    fontWeight:'bold'
+   },
+  message: {
+    padding: 10,
+    color:'green', 
+    fontSize:26,
+    lineHeight:50
+  }
+});
+
+
+
+
+リスト2-5
+export default class App extends Component {
+
+
+  constructor() {
+    super();
+    this.title = 'Welcome!';
+    this.message = 'this is sample message!';
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>
+        {this.title}
+        </Text>
+        <Text style={styles.message}>
+          {this.message}
+        </Text>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {……略……},
+  title: {……略……},
+  message: {……略……}
+});
+
+
+
+
+リスト2-6
+export default class App extends Component {
+
+
+  constructor() {
+    super();
+    this.title = 'Welcome!';
+    this.message = 'this is sample message!';
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.small} />
+        <View style={styles.middle} />
+        <View style={styles.large} />
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 30
+  },
+  small: {
+    width: 100,
+    height: 100,
+    borderStyle: 'solid',
+    borderWidth: 5,
+    borderColor:'black',
+    backgroundColor:'#00aa00',
+  },
+  middle: {
+    width: 200,
+    height: 200,
+    borderStyle: 'solid',
+    borderWidth: 5,
+    borderColor:'black',
+    backgroundColor:'#66ff66',
+  },
+  large: {
+    width: 300,
+    height: 300,
+    borderStyle: 'solid',
+    borderWidth: 5,
+    borderColor:'black',
+    backgroundColor:'#ccffcc',
+  },
+});
+
+
+
+
+リスト2-7
+import React, { Component } from 'react';
+import { StyleSheet, Alert, Button, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Button title="Click" onPress={this.doAction} />
+      </View>
+    );
+  }
+
+
+  doAction = ()=>{
+    Alert.alert('you clicked!!');
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 30
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    textAlign:'center',
+    fontSize:60,
+    fontWeight:'bold'
+  },
+});
+
+
+
+
+リスト2-8
+import React, { Component } from 'react';
+import { StyleSheet, Button, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+  counter = 0;
+
+
+  constructor(props) {
+    super(props);
+    this.state = {message: 'click me...'};
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <Button title="Click" onPress={this.doAction} />
+      </View>
+    );
+  }
+
+
+  doAction = ()=>{
+    this.setState({message:'count: ' + ++this.counter});
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 30
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:60,
+  },
+    message: {
+    padding: 10,
+    fontSize:32,
+  },
+});
+
+
+
+
+リスト2-9
+import React, { Component } from 'react';
+import { StyleSheet, Button, TextInput, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {message: 'your name:', text:''};
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Text style={styles.message}>
+          {this.state.message}
+        </Text>
+        <TextInput
+          style={styles.input}
+          placeholder="write here..."
+          value={this.state.text}
+          onChangeText={this.doType}
+        />
+        <Button title="Click" onPress={this.doAction} />
+      </View>
+    );
+  }
+
+
+  doType = (text) => this.setState({text});
+
+
+  doAction = (text)=>{
+    this.setState({text:'', message:'Hello, ' + this.state.text + '!', });
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 30
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:60,
+  },
+  message: {
+    padding: 10,
+    fontSize:32,
+  },
+  input: {
+    padding:10,
+    fontSize:32,
+  },
+});
+
+
+
+
+リスト2-10
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {message: 'your name:', text:''};
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Text style={styles.message}>
+          {this.state.message}
+        </Text>
+        <TextInput
+          ref={component => this._textInput = component}
+          style={styles.input}
+          placeholder="write here..."
+          onChangeText={this.doType}
+        />
+        <Button title="Click" onPress={this.doAction} />
+      </View>
+    );
+  }
+ 
+  doType = (text) => this.setState({text});
+
+
+  doAction = (text)=>{
+    this.setState({text:'', message:'Hello, ' + this.state.text + '!', });
+    this._textInput.setNativeProps({text: ''});
+  }
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト2-11
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Welcome />
+        <Welcome />
+      </View>
+    );
+  }
+
+
+}
+
+
+class Welcome extends Component {
+  render() {
+    return (
+      <Text style={styles.message}>こんにちは！</Text>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:60,
+  },
+  message: {
+    padding:10,
+    color: 'blue',
+    fontSize:24,
+  }
+});
+
+
+
+
+リスト2-12
+export default class App extends Component {
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Welcome name="Taro" />
+        <Welcome name="Hanako" />
+      </View>
+    );
+  }
+
+
+}
+
+
+class Welcome extends Component {
+
+
+  render() {
+    return (
+      <Text style={styles.message}>
+      こんにちは、{this.props.name}さん！</Text>
+  );
+  }
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト2-13
+class Welcome extends Component {
+
+
+  constructor(props) {
+    props.name = 'hoge';
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <Text style={styles.message}>
+      こんにちは、{this.props.name}さん！</Text>
+  );
+  }
+}
+
+
+
+
+リスト2-14
+import React, { Component } from 'react';
+import { StyleSheet, Image, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>Hello!</Text>
+        <Welcome name="Taro" />
+      </View>
+    );
+  }
+
+
+}
+
+
+class Welcome extends Component {
+
+
+  render() {
+    return (
+      <View style={styles.welcome}>
+        <Image style={styles.image}
+              source={require('./assets/image.jpg')} />
+        <Text style={styles.message}>Welcome to {this.props.name}!</Text>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:60,
+  },
+  message: {
+    padding:10,
+    color: 'blue',
+    fontSize:24,
+  },
+  welcome : {
+    padding: 10,
+    alignItems:'center',
+    borderStyle: 'solid',
+    borderWidth:3,
+    borderColor: 'gray',
+    width:250,
+    height:270,
+    backgroundColor:'lightgray',
+  },
+  image: {
+    width:200,
+    height:200,
+    borderStyle: 'solid',
+    borderWidth:1,
+    borderColor: 'black',
+  },
+});
+
+
+
+
+リスト2-15
+<Image style={styles.image} source={{uri:'https://facebook.github.io/react-native/img/header_logo.png'}} />
+
+
+
+
+リスト3-1
+import React, { Component } from 'react';
+import { StyleSheet, Switch, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {value: false};
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>switch:{this.state.value ? 'ON':'off'} </Text>
+        <Switch value={this.state.value} onValueChange={this.doAction} />
+      </View>
+    );
+  }
+
+
+  doAction = (value)=>this.setState({value: value});
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:60,
+  },
+  message: {
+    padding: 10,
+    color: 'black',
+    fontSize: 32,
+  },
+
+
+});
+
+
+
+
+リスト3-2
+import React, { Component } from 'react';
+import { StyleSheet, Slider, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {value: 50, message:'drag me!'};
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>Slider: {this.state.message}</Text>
+        <Slider value={this.state.value} 
+          onValueChange={this.doAction}
+          onSlidingComplete={this.doComplete}
+          minimumValue={0} maximumValue={100} step={5} />
+      </View>
+    );
+  }
+
+
+  doAction = (value)=>
+    this.setState({value:value, message: value});
+  
+  doComplete = (value)=>this.setState({message:'[' + value + ']'});
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-3
+import React, { Component } from 'react';
+import { StyleSheet, Picker, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = { message:'select me!'};
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <Picker prompt={'Select item:'}
+          selectedValue={this.state.value}
+          onValueChange={this.doAction}>
+          <Picker.Item label="Windows" value="Windows" />
+          <Picker.Item label="Mac" value="macOS" />
+          <Picker.Item label="Linux" value="Linux" />
+          <Picker.Item label="ChromeBook" value="ChromeOS" />
+        </Picker>
+      </View>
+    );
+  }
+  
+  doAction = (itemValue, itemIndex)=>
+    this.setState({value: itemValue, message:'select: "' + itemValue + '".'})
+
+
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-4
+import React, { Component } from 'react';
+import { StyleSheet, ListView, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    const data = new ListView.DataSource(
+      {rowHasChanged: (r1, r2) => r1 !== r2}
+    );
+    const items = ['Windows', 'macOS', 'Linux', 'ChormeOS'];
+    this.state = { 
+      message:'select me!', 
+      dataSource: data.cloneWithRows(items),
+    };
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
+    );
+  }
+
+
+  renderRow = (rowData, sectionID, rowID, highlightRow)=>
+    <Text style={styles.item}>{rowID}: {rowData}</Text>;
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {……略……},
+  message: {……略……},
+
+
+  item: {
+    borderStyle:'solid',
+    borderWidth:1,
+    padding:10,
+    margin:5,
+    fontSize:24,
+    color:'blue',
+  }
+});
+
+
+
+
+リスト3-5
+import React, { Component } from 'react';
+import { StyleSheet, ListView, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    const data = new ListView.DataSource(
+      {rowHasChanged: (r1, r2) => r1 !== r2}
+    );
+    const items = ['Windows', 'macOS', 'Linux', 'ChormeOS'];
+    this.state = { 
+      message:'select me!', 
+      dataSource: data.cloneWithRows(items),
+    };
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
+    );
+  }
+  
+  renderRow = (rowData, sectionID, rowID, highlightRow)=>{
+    return <Text style={styles.item} 
+      onPress={()=>this.doAction(rowID, rowData)}>
+      {rowID}: {rowData}</Text>;
+  }
+ 
+  doAction = (rowID,rowData)=>{
+    this.setState({message:'select: ' + rowID.toString() 
+      + '.' + rowData.toString()});
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {……略……},
+  message: {……略……},
+  item: {
+    borderStyle:'solid',
+    borderWidth:1,
+    padding:10,
+    margin:5,
+    fontSize:24,
+    color:'blue',
+  }
+});
+
+
+
+
+リスト3-6
+import React, { Component } from 'react';
+import { StyleSheet, ListView, Text, View } from 'react-native';
+
+
+export default class App extends Component {
+  listItems = [];
+  dataSource = null;
+
+
+  constructor(props) {
+    super(props);
+    this.dataSource = new ListView.DataSource(
+      { 
+        rowHasChanged: (r1, r2) => {
+          if (r1.name !== r2.name) return true;
+          if (r1.age !== r2.age) return true;
+          if (r1.mail !== r2.mail) return true;
+          if (r1.selectd !== r2.selectd) return true;
+          return false;
+        }
+      }
+    );
+    this.listItems = [
+      { name:'Taro', age:36, mail:'taro@yamada', selected:false },
+      { name:'Hanako', age:29, mail:'hanako@flower', selected:false },
+      { name:'Sachiko', age:47, mail:'sachiko@happy', selected:false },
+      { name:'Tuyano', age:123, mail:'syoda@tuyano.com', selected:false }
+    ];
+    this.state = { 
+      selected:0,
+      message:'select me!', 
+      dataSource: this.dataSource.cloneWithRows(this.listItems),
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <ListView
+          dataSource={this.state.dataSource}
+          renderRow={this.renderRow}
+        />
+      </View>
+    );
+  }
+  
+  renderRow = (rowData, sectionID, rowID, highlightRow)=>{
+    return (
+      <View style={rowData.selected ? styles.itemSelect : styles.item}>
+        <Text style={styles.itemTitle}
+          onPress={()=>this.doAction(rowID, rowData)}>
+          {rowData.name} ({rowData.age})</Text>
+        <Text style={styles.itemMail}>
+          {rowData.mail}</Text>
+      </View>
+    );
+  }
+ 
+  doAction = (rowID, rowData)=>{
+    for(var i = 0;i < this.listItems.length;i++)
+      this.listItems[i].selected = false;
+    this.listItems[rowID].selected = true;
+     this.setState({
+      dataSource:this.dataSource.cloneWithRows(this.listItems),
+      message: 'select: ' + rowID.toString() 
+          + '.' + rowData.name.toString(),
+      });
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {……略……},
+  message: {……略……},
+
+
+  item: {
+    backgroundColor:"#ccccff",
+    padding:15,
+    margin:2,
+  },
+  itemSelect: {
+    backgroundColor:"#ddffdd",
+    padding:15,
+    margin:2,
+  },
+  itemTitle: {
+    padding:10,
+    borderStyle:'solid',
+    borderWidth:1,
+    backgroundColor:'white',
+    fontSize:24,
+    color:'blue',
+  },
+  itemMail: {
+    textAlign:'right',
+    padding:3,
+    fontSize:18,
+    backgroundColor:'#000066',
+    color:'white',
+  }
+});
+
+
+
+
+リスト3-7
+リスト3-7
+import React, { Component } from 'react';
+import { StyleSheet, FlatList, StatusBar, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+  items = [
+    {key:'Windows'},
+    {key:'macOS'},
+    {key:'Linux'},
+    {key:'chromeOS'},
+    {key:'Fucsia'},
+  ];
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+
+
+        <View style={styles.body}>
+
+
+          <Text style={styles.title}>Layout</Text>
+          
+          <FlatList
+            data={this.items}
+            renderItem={this.getItem}
+          />
+
+
+        </View>
+      </View>
+    );
+  }
+
+
+  getItem = ({item}) => 
+    <Text style={styles.item}>{item.key}</Text>
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  item: {
+     margin:5,
+    fontSize:24,
+  },
+});
+
+
+
+
+リスト3-8
+import React, { Component } from 'react';
+import { StyleSheet, FlatList, StatusBar, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+  items = [
+    { name:'Taro', age:36, mail:'taro@yamada' },
+    { name:'Hanako', age:29, mail:'hanako@flower' },
+    { name:'Sachiko', age:47, mail:'sachiko@happy' },
+    { name:'Tuyano', age:123, mail:'syoda@tuyano.com' }
+  ];
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+    this.state = { 
+      message:'select me!', 
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略……/>
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <FlatList
+            data={this.items}
+            renderItem={this.getItem}
+          />
+        </View>
+      </View>
+    );
+  }
+
+
+  getItem = ({item}) => {
+    return (
+      <View style={styles.item}>
+        <Text style={styles.itemTitle}
+          onPress={()=>this.doAction(item)}>
+          {item.name} ({item.age})</Text>
+        <Text style={styles.itemMail}>
+          {item.mail}</Text>
+      </View>
+    );
+  }
+
+
+  doAction = (item)=>{
+    this.setState({
+      selected: item.id * 1,
+      message: 'select: ' + item.name.toString() 
+        + '(' + item.age.toString() + ')',
+      });
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  item: {
+    backgroundColor:"#ccccff",
+    padding:15,
+    margin:2,
+  },
+  itemTitle: {
+    padding:10,
+    borderStyle:'solid',
+    borderWidth:1,
+    backgroundColor:'white',
+    fontSize:24,
+    color:'blue',
+  },
+  itemMail: {
+    textAlign:'right',
+    padding:3,
+    fontSize:18,
+    backgroundColor:'#000066',
+    color:'white',
+  }
+});
+
+
+
+
+リスト3-9
+import React, { Component } from 'react';
+import { StyleSheet, SectionList, StatusBar, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+  sections = [
+    {title: 'Computer', data: ['Windows','macOS','ChromeOS']},
+    {title: 'Mobile', data: ['Android','iOS']},
+  ];
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+    this.state = { 
+      message:'select me!', 
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+      <Header ……略…… />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+            <SectionList
+              sections={this.sections}
+              renderItem={this.getItem}
+              renderSectionHeader={this.getSection}
+              keyExtractor={(item, index) => index}
+            />
+        </View>
+      </View>
+    );
+  }
+
+
+  getItem = ({item}) => (
+    <Text style={styles.item}
+      onPress={()=>this.doActionItem(item)}>
+      {item}
+    </Text>)
+
+
+  getSection = ({section}) => (
+    <Text style={styles.section} 
+      onPress={()=>this.doActionSec(section)}>
+      {section.title}
+    </Text>)
+
+
+  doActionItem = (item)=>{
+    this.setState({
+      message: 'select:"' + item + '" item.',
+    });
+  }
+
+
+  doActionSec = (section)=>{
+    this.setState({
+      message: 'select:"' + section.title + '" sec.',
+    });
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  section: {
+    padding:10,
+    margin:2,
+    fontSize:24,
+    fontWeight:'bold',
+  },
+  item: {
+    backgroundColor:"#ccccff",
+    padding:10,
+    margin:2,
+    fontSize:20,
+  },
+});
+
+
+
+
+リスト3-10
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { CheckBox } from 'react-native-elements'
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!', 
+      checked: true,
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <CheckBox title='Checkbox' 
+          onPress={this.doAction}
+          checked={this.state.checked} />
+      </View>
+    );
+  }
+  
+  doAction = ()=> this.setState({
+    message: 'Checkbox: ' + !this.state.checked,
+    checked: !this.state.checked
+  });
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-11
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { ButtonGroup } from 'react-native-elements'
+
+
+export default class App extends Component {
+  buttons = [
+    {title:'One', element: ()=> <Text style={styles.item}>One</Text>},
+    {title:'Two', element: ()=> <Text style={styles.item}>Two</Text>},
+    {title:'Three', element: ()=> <Text style={styles.item}>Three</Text>},
+  ];
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!',
+      selectedIndex:0,
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <ButtonGroup
+          onPress={this.doAction}
+          selectedIndex={this.state.selectedIndex}
+          buttons={this.buttons}
+          containerStyle={{height: 75}}
+        />
+      </View>
+    );
+  }
+  
+  doAction = (selectedIndex)=> this.setState({
+    message: 'Selected: [' + selectedIndex + '] ' 
+      + this.buttons[selectedIndex].title,
+      selectedIndex: selectedIndex});
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 25 },
+  title: {……略……},
+  message: {……略……},
+  item: {
+    color:'blue',
+    fontSize:28,
+  }
+});
+
+
+
+
+リスト3-12
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Rating } from 'react-native-elements'
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <Rating
+          showRating
+          type="heart"
+          ratingCount={7}
+          imageSize={50} 
+          onFinishRating={this.doAction}
+        />
+      </View>
+    );
+  }
+  
+  doAction = (rating)=> this.setState({
+    message: 'rate: [' + rating + '] ',
+  });
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-13
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { List, ListItem } from 'react-native-elements';
+
+
+export default class App extends Component {
+  list = [
+    {
+      title: 'Bar',
+      subtitle:'local bar list.',
+      icon: 'local-bar'
+    },
+    {
+      title: 'Cafe',
+      subtitle:'local cafe list.',
+      icon: 'local-cafe'
+    },
+    {
+      title: 'Drink',
+      subtitle:'local drink bar list.',
+      icon: 'local-drink'
+    },
+    {
+      title: 'Dining',
+      subtitle:'local restaurant list.',
+      icon: 'local-dining'
+    },
+  ];
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <List containerStyle={{marginBottom: 20}}>
+          {this.list.map(this.getItems)}
+        </List>
+      </View>
+    );
+  }
+
+
+  getItems = (item, i)=>(
+    <ListItem
+      key={i}
+      title={item.title}
+      titleStyle={{fontSize:32}}
+      subtitle={item.subtitle}
+      subtitleStyle={{fontSize:24}}
+      leftIcon={{name: item.icon, size:50}}
+      onPress={()=>this.doAction(item.title)}
+      onPressRightIcon={()=>this.doAction(item.subtitle)}
+    />)
+  
+  doAction = (item)=>{
+    this.setState({
+      message: 'select: ' + item,
+    });
+  }
+  
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-14
+import React, { Component } from 'react';
+import { StyleSheet, Button, Text, View } from 'react-native';
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!',
+      name:'',
+      mail:'',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <FormLabel labelStyle={{fontSize:24}}>Name</FormLabel>
+        <FormInput inputStyle={{fontSize:24}}
+          onChangeText={(value)=>this.setState({name:value})}/>
+        <FormValidationMessage labelStyle={{fontSize:18}}>
+          {this.state.name == '' ? 'type your name...':''}
+        </FormValidationMessage>
+        <FormLabel labelStyle={{fontSize:24}}>Mail Address</FormLabel>
+        <FormInput  inputStyle={{fontSize:24}}
+          onChangeText={(value)=>this.setState({mail:value})}/>
+        <FormValidationMessage labelStyle={{fontSize:18}}>
+          {this.state.mail == '' ? 'type mail address...':''}
+        </FormValidationMessage>
+        <View style={{height:30}}></View>
+        <Button title="check!" onPress={this.doAction} />
+      </View>
+    );
+  }
+  
+  doAction = ()=>{
+    this.setState({
+      message: 'name: "' + this.state.name + '"\n' + this.state.mail,
+    });
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト3-15
+import React, { Component } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import { Icon } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = { 
+      message:'check me!',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Text style={styles.title}>UI</Text>
+        <Text style={styles.message}>{this.state.message}</Text>
+        <Icon 
+          size={100}
+          type='material'
+          name='favorite'
+          color='#ff0000'
+        />
+        <Icon
+          reverse
+          size={50}
+          type='material'
+          name='android'
+          color='#00ff00'
+        />
+        <Icon 
+          raised
+          size={50}
+          type='material'
+          name='help'
+          color='#0000ff'
+        />
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+
+
+
+
+リスト4-1
+import React, { Component } from 'react';
+import { StyleSheet, Alert, StatusBar, TextInput, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <View>
+        <StatusBar barStyle="light" hidden={false} />
+        <Header 
+          leftComponent={{
+            icon: 'menu', color: 'white', size:35,
+            onPress:this.doActionLeft
+          }}
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          rightComponent={{ 
+            icon: 'android', color: 'white', size:35,
+            onPress:this.doActionRight 
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+          innerContainerStyles={{
+            backgroundColor: '#dd0000'
+          }}
+        />
+        <View style={styles.base}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>This is sample message.</Text>
+        </View>
+      </View>
+    );
+  }
+
+
+  doActionLeft = ()=>{ Alert.alert('Left icon tapped!'); }
+  doActionRight = ()=>{ Alert.alert('Right icon tapped!'); }
+}
+
+
+const styles = StyleSheet.create({
+  base: {
+    padding: 20
+  },
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold'
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:48,
+  },
+    message: {
+    padding: 10,
+    color:'blue',
+    fontSize:24,
+  },
+});
+
+
+
+
+リスト4-2
+import React, { Component } from 'react';
+import { StyleSheet, Alert, StatusBar, TextInput, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    return (
+      <View>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        <View style={styles.base}>
+          <Text style={styles.title}>Layout</Text>
+          
+          <View style={{
+            flexDirection: 'row',
+            justifyContent :'center',
+          }}>
+            <View style={styles.view} />
+            <View style={styles.view} />
+            <View style={styles.view} />
+          </View>
+
+
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 5, },
+  header: {……略……},
+  title: {……略……},
+  view: {
+    width: 100, 
+    height: 100, 
+    margin:5,
+    backgroundColor: '#6666aa',
+  },
+});
+
+
+
+
+リスト4-3
+<View style={{
+  flexDirection: 'column',
+  justifyContent :'flex-start',
+}}>
+
+
+
+
+リスト4-4
+import React, { Component } from 'react';
+import { StyleSheet, Alert, StatusBar, TextInput, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+
+
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <Text style={styles.title}>Layout</Text>
+        
+        <View style={styles.container}>
+          <View style={styles.view1} />
+          <View style={styles.view2} />
+          <View style={styles.view3}>
+            <View style={styles.view4} />
+            <View style={styles.view4} />
+          </View>
+        </View>
+
+
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { flex:1, },
+  header: {……略……},
+  title: {……略……},
+  container: {
+    flex:1,
+    padding: 10,
+    margin:10,
+    backgroundColor: '#eeffee',
+    borderStyle:'solid',
+    borderWidth: 2,
+    borderColor:'red',
+  },
+  view1: {
+    flex:1,
+    margin:5,
+    backgroundColor: '#6666aa',
+    borderStyle:'solid',
+    borderWidth: 2,
+    borderColor:'black',
+  },
+  view2: {
+    flex:2,
+    margin:5,
+    backgroundColor: '#9999cc',
+    borderStyle:'solid',
+    borderWidth: 2,
+    borderColor:'black',
+  },
+  view3: {
+    flex:3,
+    flexDirection: 'row',
+    margin:0,
+  },
+    view4: {
+    flex:1,
+    margin:5,
+    backgroundColor: '#ccccff',
+    borderStyle:'solid',
+    borderWidth: 2,
+    borderColor:'blublacke',
+  },
+});
+
+
+
+
+リスト4-5
+import React, { Component } from 'react';
+import { StyleSheet, Alert, StatusBar, TextInput, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+  }
+
+
+  render() {
+    return (
+      <View>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        <View style={styles.base}>
+          <Text style={styles.title}>Layout</Text>
+          
+          <View style={{
+            flex: 1, flexDirection: 'row',
+            justifyContent :'flex-end',
+            alignItems: 'flex-start',
+          }}>
+            <View style={styles.view} />
+            <View style={styles.view} />
+            <View style={styles.view} />
+          </View>
+
+
+          <View style={{
+            flex: 0, flexDirection: 'column',
+            justifyContent :'flex-start',
+            alignItems: 'flex-start',
+          }}>
+            <View style={styles.view2} />
+            <View style={styles.view2} />
+          </View>
+
+
+          <View style={{
+            flex: 1, flexDirection: 'column',
+            justifyContent :'flex-start',
+            alignItems: 'flex-end',
+          }}>
+            <View style={styles.view2} />
+            <View style={styles.view2} />
+          </View>
+
+
+          <View style={{
+            flex: 1, flexDirection: 'column',
+            justifyContent :'flex-start',
+            alignItems: 'flex-start',
+          }}>
+            <View style={styles.view2} />
+            <View style={styles.view2} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 5, },
+  header: {……略……},
+  title: {……略……},
+  view: {
+    width: 100, 
+    height: 100, 
+    margin:5,
+    backgroundColor: '#6666aa',
+  },
+  view2: {
+    width: 45, 
+    height: 45, 
+    margin:5,
+    backgroundColor: '#9999ff',
+  }
+});
+
+
+
+
+リスト4-6
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, StatusBar, Text, View } from 'react-native';
+import { Header } from 'react-native-elements';
+
+
+export default class App extends Component {
+  items = ['one','two','thtee','four','five',
+    'six','seven','eight','nine','ten!'];
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        <Text style={styles.title}>Layout</Text>
+        
+        <ScrollView style={{flex:1}}>
+        {this.items.map((item,i)=>this.getView(item,i))}
+        </ScrollView>
+      </View>
+    );
+  }
+
+
+  getView = (item, i)=>(
+    <View style={styles.view}>
+      <Text style={{fontSize:36}}>{i}: {item}</Text>
+    </View>)
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  view: {
+    height:100,
+    margin:5,
+    backgroundColor:'#aaffaa'
+  },
+});
+
+
+
+
+リスト4-7
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Text, View } from 'react-native';
+import { Header, Tile, } from 'react-native-elements';
+
+export default class App extends Component {
+
+ constructor(props) {
+   super(props);
+   StatusBar.setBarStyle('dark-content', true);
+   StatusBar.setBackgroundColor('#008080', true);
+ }
+
+ render() {
+   return (
+     <View style={styles.base}>
+       <Header 
+         centerComponent={{ 
+           text:"SampleApp", 
+           style:styles.header
+         }}
+         outerContainerStyles={{ 
+           height:100, backgroundColor: '#dd0000' 
+         }}
+       />
+
+       <View style={styles.body}>
+
+         <Text style={styles.title}>Layout</Text>
+         
+         <Tile
+           imageSrc={require('./assets/image.jpg')}
+           title="This is sample image tile component."
+         />
+
+       </View>
+     </View>
+   );
+ }
+
+}
+
+const styles = StyleSheet.create({
+ base: { padding: 0,flex:1, },
+ body: { padding:0,flex:1, },
+ header: {……略……},
+ title: {……略……},
+});
+
+
+
+リスト4-8
+<Tile
+ featured
+ imageSrc={require('./assets/image.jpg')}
+ title="This is sample image tile component."
+ caption="This is sample caption."
+ />
+
+
+
+
+リスト4-9
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Text, View } from 'react-native';
+import { Header, Tile, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+
+
+          <Text style={styles.title}>Layout</Text>
+          
+          <Tile 
+            imageSrc={require('./assets/image.jpg')}
+            title="This is sample image tile component."
+            icon={{ 
+              name: 'play-circle', 
+              type: 'font-awesome', 
+              size:50, color:'white' }}
+            height={500}
+            contentContainerStyle={{ height: 200 }}
+            >
+            <View style={styles.tileFooter}>
+              <Text style={styles.tileCaption}>Help</Text>
+              <Text style={styles.tileCaption}>click here!</Text>
+            </View>
+          </Tile>
+
+
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:0,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  tileFooter: { 
+    flex: 1, 
+    flexDirection: 'row', 
+    justifyContent: 'space-between' 
+  },
+  tileCaption: { fontSize:18, },
+});
+
+
+
+
+リスト4-10
+// import { WebView } from 'react-native';
+
+
+<WebView
+  source={{uri: 'https://github.com/facebook/react-native'}}
+/>
+
+
+
+
+リスト4-11
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Alert, WebView, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+    this.state = {url:''}
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        
+        <View style={styles.body}>
+          <Text style={styles.title}>Layout</Text>
+          
+          <WebView
+            source={{uri: this.state.url}}
+            onLoad={()=>{
+              if (this.state.url != '')
+                Alert.alert('web page loaded!');
+              }}
+          />
+
+
+          <Button title="Click" onPress={this.doAction} />
+
+
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction = ()=> {
+    this.setState({url:'https://github.com/facebook/react-native'});
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト4-12
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Alert, Modal, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+    this.state = {
+      message:'これは、モーダルのサンプルです。',
+      modal: false,
+    }
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.modal}
+            onRequestClose={this.closeModal}>
+            <View style={{padding: 25}}>
+                <Text style={styles.modalTitle}>Modal View</Text>
+                <Text style={styles.modalContent}>
+                ※これは、モーダル表示のサンプルです。
+                </Text>
+                <Button title="OK" onPress={this.doModalAction} />
+            </View>
+          </Modal>
+
+
+          <View style={{padding:10}}>
+            <Button title="Click" onPress={this.doAction} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction = ()=> {
+    this.setState({modal:true });
+  }
+
+
+  doModalAction = ()=> {
+    this.setState({
+      modal:false,
+      message:'モーダルを閉じました。',
+    });
+  }
+
+
+  closeModal = ()=> {
+    alert('close modal!');
+    this.setState({ modal:false });
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  message: {
+    padding:10, 
+    fontSize:28,
+  },
+  modalTitle: {
+    padding:10,
+    fontSize:42,
+  },
+  modalContent: {
+    padding:10,
+    fontSize:24,
+  }
+});
+
+
+
+
+リスト4-13
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Alert, Modal, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    StatusBar.setBarStyle('dark-content', true);
+    StatusBar.setBackgroundColor('#008080', true);
+    this.state = {
+      message:'これは、モーダルのサンプルです。',
+      modal: false,
+    }
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>Layout</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <Modal
+            animationType="fade"
+            transparent={true}
+            visible={this.state.modal}
+            onRequestClose={this.closeModal}>
+            <View style={styles.modalBase}>
+              <View style={styles.modalPanel}>
+                  <Text style={styles.modalTitle}>Modal View</Text>
+                  <Text style={styles.modalContent}>
+                  ※これは、モーダル表示のサンプルです。
+                  </Text>
+                  <Button title="OK" onPress={this.doModalAction} />
+              </View>
+            </View>
+          </Modal>
+          
+          <View style={{padding:10}}>
+            <Button title="Click" onPress={this.doAction} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction = ()=> {
+    this.setState({modal:true });
+  }
+
+
+  doModalAction = ()=> {
+    this.setState({
+      modal:false,
+      message:'モーダルを閉じました。',
+    });
+  }
+
+
+  closeModal = ()=> {
+    alert('close modal!');
+    this.setState({ modal:false });
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, },
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  modalBase: {
+    flex:1, 
+    justifyContent:'center',
+    backgroundColor:'#00000099', 
+  },
+  modalPanel: {
+    padding: 10,
+    margin:50,
+    backgroundColor:'white',
+    borderStyle:'solid',
+    borderWidth:2,
+    borderColor:'black',
+  },
+  modalTitle: {
+    padding:10,
+    fontSize:24,
+    fontWeight:'bold',
+  },
+  modalContent: {
+    padding:10,
+    fontSize:20,
+  }
+});
+
+
+
+
+リスト4-14
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { createStackNavigator } from 'react-navigation';
+
+
+class FirstScreen extends Component {
+
+
+  static navigationOptions = {
+    title: 'First Screen',
+    headerStyle:{backgroundColor:'#aa0000', },
+    headerTintColor:'white',
+  };
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'First Screen',
+      message:'これは、ナビゲーションのサンプルです。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <View style={{padding:10}}>
+            <Button title="Next Screen >>" onPress={this.doAction} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction = ()=> {
+    this.props.navigation.navigate('Next');
+  }
+
+
+}
+
+
+class SecondScreen extends Component {
+
+
+  static navigationOptions = {
+    title: 'Second Screen',
+    headerStyle:{backgroundColor:'#00aa00', },
+    headerTintColor:'white',
+  };
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Second Screen',
+      message:'移動した２番目の画面です。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <View style={{padding:10}}>
+            <Button title="<< Go Back" onPress={this.doAction1} />
+          </View>
+          <View style={{padding:10}}>
+            <Button title="Go Next >>" onPress={this.doAction2} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction1 = ()=> {
+    this.props.navigation.goBack();
+  }
+  doAction2 = ()=> {
+    this.props.navigation.navigate('Last');
+  }
+}
+
+
+class ThirdScreen extends Component {
+
+
+  static navigationOptions = {
+    title: 'Third Screen',
+    headerStyle:{backgroundColor:'#0000aa', },
+    headerTintColor:'white',
+  };
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Third Screen',
+      message:'最後の画面です。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+          <View style={{padding:10}}>
+            <Button title="Go Home!" onPress={this.doAction} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  doAction = ()=> {
+    this.props.navigation.popToTop();
+  }
+  
+}
+
+
+export default createStackNavigator(
+  {
+    Home: { screen: FirstScreen },
+    Next: { screen: SecondScreen },
+    Last: { screen: ThirdScreen },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, },
+  body: { padding:10,flex:1, backgroundColor:'white'},
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:48,
+  },
+  message: {
+    padding:10, 
+    fontSize:28,
+  },
+});
+
+
+
+
+リスト4-15
+import React, { Component } from 'react';
+import { StyleSheet, StatusBar, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { createBottomTabNavigator } from 'react-navigation';
+
+
+class FirstScreen extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: 'First Screen',
+      message:'これは、ナビゲーションのサンプルです。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+class SecondScreen extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Second Screen',
+      message:'移動した２番目の画面です。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+class ThirdScreen extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Third Screen',
+      message:'最後の画面です。',
+    }
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <Text style={styles.title}>{this.state.title}</Text>
+          <Text style={styles.message}>{this.state.message}</Text>
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+const Home = createBottomTabNavigator (
+  {
+    Home: { screen: FirstScreen },
+    Next: { screen: SecondScreen },
+    Last: { screen: ThirdScreen },
+  },
+  {
+    tabBarOptions:{
+      activeTintColor: 'white',
+      inactiveTintColor: 'gray',
+      activeBackgroundColor :'#0000ff',
+      inactiveBackgroundColor :'#0000aa',
+      labelStyle: {
+        fontSize: 24,
+      },
+    }
+  }
+);
+
+
+export default class HomeScreen extends Component {
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        <Text style={styles.message}>
+        これは、タブ切り替えのサンプルです。
+        </Text>
+        <Home />
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, backgroundColor:'#ccc'},
+  body: { padding:10,flex:1, backgroundColor:'white'},
+    header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold'
+  },
+  title: {
+    padding: 10,
+    color:'red',
+    fontSize:48,
+  },
+  message: {
+    padding:10, 
+    fontSize:28,
+  },
+});
+
+
+
+
+リスト5-1
+import React, { Component } from 'react';
+import { StyleSheet, DrawerLayoutAndroid, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'AndroidUI',
+      message:'Android UI Component.',
+    };
+  }
+
+
+  render() {
+    var drawerView = (
+      <View style={styles.drawerBase}>
+        <Text style={styles.drawerText}>
+        This is Drawer!
+        </Text>
+        <Text style={styles.drawerText}>
+        これは、ドロワーの表示です。
+        </Text>
+      </View>
+    );
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        <DrawerLayoutAndroid
+          drawerWidth={300}
+          drawerPosition={DrawerLayoutAndroid.positions.Left}
+          renderNavigationView={() => drawerView}>
+
+
+          <View style={styles.body}>
+            <Text style={styles.title}>
+              {this.state.title}
+            </Text>
+            <Text style={styles.message}>
+              {this.state.message}
+            </Text>
+          </View>
+
+
+        </DrawerLayoutAndroid>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding: 0,flex:1, backgroundColor:'white' },
+  body: { padding:10,flex:1,},
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  drawerBase: {
+    flex: 1, 
+    backgroundColor: 'white',
+  },
+  drawerText: {
+    margin: 20, 
+    fontSize: 24, 
+    textAlign: 'left'
+  },
+});
+
+
+
+
+リスト5-2
+import React, { Component } from 'react';
+import { StyleSheet, ToolbarAndroid, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'AndroidUI',
+      message:'Android UI Component.',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <ToolbarAndroid
+          style={styles.toolbar}
+          title="Sample App"
+          titleColor="white"
+          actions={[
+            {title: 'item1', show: 'never'},
+            {title: 'item2', show: 'never'}
+          ]}
+          onActionSelected={(pos)=>{
+            Alert.alert('select id = ' + pos);
+          }}
+          />
+
+
+          <View style={styles.body}>
+            <Text style={styles.title}>
+              {this.state.title}
+            </Text>
+            <Text style={styles.message}>
+              {this.state.message}
+            </Text>
+          </View>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { paddingTop: 24, flex:1, backgroundColor:'white' },
+  body: { padding:10, },
+  toolbar: {
+    height:100,
+    margin:0,
+    padding:0,
+    backgroundColor:'blue',
+    fontSize:40,
+  },
+  title: {……略……},
+  message: {……略……},
+});
+
+
+
+
+リスト5-3
+<ToolbarAndroid
+  style={styles.toolbar}
+  logo={require('./assets/image.jpg')}
+  title="Sample App"
+  titleColor="white"
+  actions={[
+    {title: 'item1', show: 'always', 
+      icon: require('./assets/expo.symbol.white.png')},
+    {title: 'item2', show: 'never'}
+  ]}
+  onActionSelected={(n)=>{
+    Alert.alert('select id = ' + n);
+  }} />
+
+
+
+
+リスト5-4
+import React, { Component } from 'react';
+import { StyleSheet, ViewPagerAndroid, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'AndroidUI',
+      message:'Android UI Component.',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>
+            {this.state.title}
+          </Text>
+          <Text style={styles.message}>
+            {this.state.message}
+          </Text>
+        </View>
+
+
+        <ViewPagerAndroid
+          style={styles.viewPager}
+          initialPage={0}>
+          <View style={styles.pageStyle} key="1">
+            <Text style={styles.pageTItle}>First page</Text>
+            <Text style={styles.pageContent}>
+            ※これは、最初のページのコンテンツです。
+            </Text>
+          </View>
+          <View style={styles.pageStyle} key="2">
+            <Text style={styles.pageTItle}>Second page</Text>
+            <Text style={styles.pageContent}>
+            ※これは、２ページ目のコンテンツです。
+            </Text>            
+          </View>
+        </ViewPagerAndroid>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold'
+  },
+  title: {……略……},
+  message: {……略……},
+  viewPager: {
+    flex: 2,
+    backgroundColor:'white',
+  },
+  pageStyle: {
+    alignItems: 'center',
+    padding: 20,
+  },
+  pageTItle: {
+    fontSize:28,
+    fontWeight:'bold',
+  },
+  pageContent: {
+    padding:10,
+    fontSize:24,
+  },
+});
+
+
+
+
+リスト5-5
+<ViewPagerAndroid
+  style={styles.viewPager}
+  initialPage={0}
+  ref={(viewPager) => {this.viewPager = viewPager}}
+  onPageSelected={
+    (event)=>{ Alert.alert('selected: ' + event.nativeEvent.position); }
+  }>
+  <View style={styles.pageStyle} key="1">
+    <Text style={styles.pageTItle}>First page</Text>
+    <Text style={styles.pageContent}>
+    ※これは、最初のページのコンテンツです。
+    </Text>
+    <Button title="go next >>" 
+      onPress={()=>{this.viewPager.setPage(1);}} />
+  </View>
+  <View style={styles.pageStyle} key="2">
+    <Text style={styles.pageTItle}>Second page</Text>
+    <Text style={styles.pageContent}>
+    ※これは、２ページ目のコンテンツです。
+    </Text>
+    <Button title="<< go prev" 
+      onPress={()=>{this.viewPager.setPage(0);}} />         
+  </View>
+</ViewPagerAndroid>
+
+
+
+
+リスト5-6
+import React, { Component } from 'react';
+import { StyleSheet, PickerIOS, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.items = [
+      {title:'one', value:'最初'},
+      {title:'two', value:'二番目'},
+      {title:'three', value:'三番目'},
+      {title:'four', value:'四番目'},
+      {title:'five', value:'最後'},
+    ];
+    this.state = {
+      title:'iOS UI',
+      message:'iOS UI Component.',
+      value:'最初',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>
+            {this.state.title}
+          </Text>
+          <Text style={styles.message}>
+            {this.state.message}
+          </Text>
+        </View>
+
+
+        <PickerIOS
+          selectedValue={this.state.value}
+          style={styles.picker}
+          onValueChange={
+            (value, index)=>{
+              this.setState({value:value});
+              Alert.alert('選択したのは ' + value + ' です。'); 
+          }} >
+          {this.items.map((item, index) =>
+            <PickerIOS.Item
+              key={index}
+              label={item.title}
+              value={item.value}
+            />
+          )}
+        </PickerIOS>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  picker: {
+    backgroundColor:'white',
+  },
+});
+
+
+
+
+リスト5-7
+import React, { Component } from 'react';
+import { StyleSheet, DatePickerIOS, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'iOS UI',
+      message:'iOS UI Component.',
+      value: new Date(),
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+
+
+        <View style={styles.body}>
+          ……略……
+        </View>
+
+
+        <DatePickerIOS
+          locale='ja'
+          mode='date'
+          date={this.state.value}
+          style={styles.picker}
+          onDateChange={
+            (value)=>{
+              this.setState({value:value});
+              Alert.alert('選択した日付は ' 
+                + value.getFullYear() + '年' 
+                + (value.getMonth() + 1) + '月' 
+                + value.getDate() + '日です。'); 
+          }} />
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  picker: {
+    backgroundColor:'white',
+  },
+});
+
+
+
+
+リスト5-8
+import React, { Component } from 'react';
+import { StyleSheet, TabBarIOS, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.data = [
+      {
+        icon:'favorites',
+        name:'One', 
+        message:'これは最初のコンテンツです。'
+      },
+      {
+        icon:'bookmarks',
+        name:'Two', 
+        message:'これは真ん中のコンテンツです。'
+      },
+      {
+        icon:'history',
+        name:'Three', 
+        message:'これは最後のコンテンツです。'
+      },
+    ];
+    this.state = {
+      title:'iOS UI',
+      message:'iOS UI Component.',
+      value: 'One',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+
+
+        <View style={styles.body}>
+          ……略……
+        </View>
+
+
+        <TabBarIOS 
+          style={styles.tabbar}
+          selectedTab={this.state.value}>
+
+
+          {this.data.map((value, index)=>
+            <TabBarIOS.Item 
+              name={value.name}
+              systemIcon={value.icon}
+              selected={this.state.value == value.name} 
+              onPress={() => { this.setTab(value.name); }
+              }>
+              <View>
+                <Text style={styles.tabTitle}>{value.name}</Text>
+                <Text style={styles.tabContent}>{value.message}</Text>
+              </View>
+            </TabBarIOS.Item>
+          )}
+
+
+        </TabBarIOS>
+
+
+      </View>
+    );
+  }
+
+
+  setTab = (value)=>{
+    this.setState({value: value,});
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {
+    color: 'white',……略……},
+  title: {……略……},
+  message: {……略……},
+  tabbar: {
+    backgroundColor:'white',
+  },
+  tabTitle: {
+    padding:20,
+    fontSize:28,
+    color:'black',
+  },
+  tabContent: {
+    padding:20,
+    fontSize:24,
+    color:'black',
+  },
+});
+
+
+
+
+リスト5-9
+import React, { Component } from 'react';
+import { StyleSheet, SegmentedControlIOS, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.items = ['One', 'Two', 'Three'];
+    this.state = {
+      title:'iOS UI',
+      value: 'One',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+
+
+        <View style={styles.body}>
+          ……略……
+
+
+        <SegmentedControlIOS
+          style={styles.segCtl}
+          values={this.items}
+          selectedIndex={this.state.value}
+          onChange={(event) => {this.setSegment(event);}}
+        />
+
+
+        </View>
+      </View>
+    );
+  }
+
+
+  setSegment = (event)=>{
+    var index = event.nativeEvent.selectedSegmentIndex;
+    this.setState({value: index});
+    Alert.alert('select id=' + index + ':' + this.items[index]);
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'white'},
+  header: {……略……},
+  title: {……略……},
+  message: {……略……},
+  segCtl: {
+    margin:10,
+    fontSize:24,
+    height:50,
+  }
+});
+
+
+
+
+リスト5-10
+import React, { Component } from 'react';
+import { StyleSheet, ActionSheetIOS, Alert, Button, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.buttons = [
+      'One',
+      'Two',
+      'Three',
+      'Delete',
+      'Cancel',
+    ];
+    this.state = {
+      title:'iOS UI',
+      message:'iOS UI Component.',
+      value: 'none',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略……  />
+
+
+        <View style={styles.body}>
+          <Text style={styles.title}>
+            {this.state.title}
+          </Text>
+          <Text style={styles.message}>
+            clicked: {this.state.value}
+          </Text>
+          <Text style={styles.btn}
+            onPress={ this.showActionSheet }>
+            Click!
+          </Text>
+        </View>
+      </View>
+    );
+  }
+
+
+  showActionSheet = ()=>{
+    ActionSheetIOS.showActionSheetWithOptions({
+      options: this.buttons,
+      cancelButtonIndex: 4,
+      destructiveButtonIndex: 3,
+    },
+    (index) => {
+      this.setState({ value: this.buttons[index] });
+    });
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {……略…… },
+  title: {……略…… },
+  message: {……略…… },
+  btn: {
+    padding:20, 
+    fontSize:24,
+    textAlign:'center',
+    backgroundColor:'white',
+  }
+});
+
+
+
+
+リスト6-1
+import React, { Component } from 'react';
+import { StyleSheet, ART, Alert,  View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+const { Surface, Shape, Group, Text, Path,
+  ClippingRectangle, LinearGradient,
+  RadialGradient, Pattern, Transform
+} = ART;
+
+
+export default class App extends Component {
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Graphics',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          
+          <View style={styles.art}>
+            <Surface width={1000} height={1000}>
+              <Shape
+                d={'M 50 50 L 150 50 L 150 150 L 50 150 Z'}
+                fill={'red'}
+              />
+              <Shape
+                d={'M 100 100 L 200 100 L 200 200 L 100 200 Z'}
+                stroke={'green'}
+                strokeWidth={10}
+              />
+            </Surface>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold'
+  },
+  art: {
+    flex:1,
+    backgroundColor:'white',
+  },
+
+
+});
+
+
+
+
+リスト6-2
+<Surface width={1000} height={1000}>
+  <Shape
+    d={'M 50 50 l 100 0 l 0 100 l -100 0 Z'}
+    fill={'red'}
+  />
+  <Shape
+    d={'M 100 100 l 100 0 l 0 100 l -100 0 Z'}
+    stroke={'green'}
+    strokeWidth={10}
+  />
+</Surface>
+
+
+
+
+リスト6-3
+export default class App extends Component {
+
+
+  constructor(props) {……略……}
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <View style={styles.art}>
+            <Surface width={1000} height={1000}>
+            { [10, 15, 25, 40, 60, 85, 115, 150, 190, 235, 285].map(this.getShape) }
+            </Surface>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+
+  getShape = (value, index)=>{
+    return <Shape
+      d={'M '+ value + ' ' + value + ' l 100 0 l 0 100 l -100 0 Z'}
+      fill={'#ff000066'}
+    />;
+  }
+}
+
+
+
+
+リスト6-4
+<Surface width={1000} height={1000}>
+  <Shape
+    d={'M 100 100 A 50 50 0 0 0 300 300'}
+    fill={'#afa'}
+    stroke={'#f00'}
+    strokeWidth={30}
+  />
+  <Shape
+    d={'M 100 100 A 50 50 0 0 1 300 300'}
+    stroke={'#00a'}
+    strokeWidth={30}
+  />
+</Surface>
+
+
+
+
+リスト6-5
+class Circle extends Component {
+  render() {
+    var {x, y, r, ...etc} = this.props;
+    var c = new Path()
+      .move(x , y - r)
+      .arc(0, r * 2, r)
+      .arc(0, r * -2, r)
+      .close(); 
+    return <Shape d={c} {...etc} />;
+  }
+}
+
+
+
+
+リスト6-6
+<Surface width={1000} height={1000}>
+  <Circle x={100} y={100} r={50} fill={'#99f'} />
+  <Circle x={150} y={150} r={75} 
+    stroke={'#00f'} strokeWidth={20} />
+  <Circle x={200} y={200} r={100} 
+    fill={'#0000ff33'}
+    stroke={'#00a'} strokeWidth={10} />
+</Surface>
+
+
+
+
+リスト6-7
+class Rect extends Component {
+  render() {
+    var {x, y, w, h, ...etc} = this.props;
+    var rect = new Path()
+      .move(x , y)
+      .line(w, 0)
+      .line(0, h)
+      .line(-w, 0)
+      .close();
+    return <Shape d={rect} {...etc} />;
+  }
+}
+
+
+
+
+リスト6-8
+<Surface width={1000} height={1000}>
+  <Circle x={100} y={100} r={50} fill={'#99f'} />
+  <Circle x={200} y={200} r={50} fill={'#99f'} />
+  <Rect x={150} y={50} w={100} h={100} 
+    stroke={'#33f'} strokeWidth={10} />
+  <Rect x={50} y={150} w={100} h={100} fill={'#33f'} />
+</Surface>
+
+
+
+
+リスト6-9
+<Surface width={1000} height={1000}>
+  <Shape
+    d={'M 50,50 Q 500,100 300,300'}
+    fill={'#afa'}
+    stroke={'#f00'} strokeWidth={10}
+  />
+  <Shape
+    d={'M 50,50 C 50,500 300,0 300,300'}
+    fill={'#f0f'}
+    stroke={'#a00'} strokeWidth={10}
+  />
+</Surface>
+
+
+
+
+リスト6-10
+<Surface width={1000} height={1000}>
+  <Text x={25} y={50} fill={'red'} 
+    font="bold italic 48 helvetica">Hello!</Text>
+  <Text x={25} y={130} stroke={'black'} strokeWidth={2}
+    font="bold 40 helvetica">This is Art sample.</Text>
+  <Text x={25} y={200} fill={'black'} 
+    font="24 helvetica">※これは、ARTのサンプルです。</Text>
+</Surface>
+
+
+
+
+リスト6-11
+<Surface width={1000} height={1000}>
+  <Group x={50} y={200}>
+    <Rect x={50} y={50} w={150} h={150} fill={'red'} />
+    <Circle x={200} y={200} r={75} fill={'blue'} />
+  </Group>
+</Surface>
+
+
+
+
+リスト6-12
+<Surface width={1000} height={1000}>
+  <Group x={50} y={50} originX={50} originY={50}>
+    <Rect x={30} y={0} w={200} h={100} 
+      fill={'rgba(50,0,0,0.5)'} />
+    <Group rotation={45} originX={50} originY={100}>
+      <Rect x={30} y={0} w={200} h={100} 
+        fill={'rgba(150,0,0,0.5)'} />
+      <Group rotation={45} originX={50} originY={100}>
+        <Rect x={30} y={0} w={200} h={100} 
+          fill={'rgba(255,0,0,0.5)'} />
+      </Group>
+    </Group>
+  </Group>
+</Surface>
+
+
+
+
+リスト6-13
+render() {
+  const t0 = Transform().move(150,100);
+  const t1 = Transform().move(150,100).rotate(30);
+  const t2 = Transform().move(150,100).rotate(60);
+  const t3 = Transform().move(150,100).rotate(90);
+
+
+  return (
+    <View style={styles.base}>
+      <Header 
+        centerComponent={{ 
+          text:"SampleApp", 
+          style:styles.header
+        }}
+        outerContainerStyles={{ 
+          height:100, backgroundColor: '#dd0000' 
+        }}
+      />
+      
+      <View style={styles.body}>
+        <View style={styles.art}>
+        
+          <Surface width={1000} height={1000}>
+            <Rect x={0} y={0} w={200} h={100} fill={'#600'} 
+            transform={t0} />
+            <Rect x={0} y={0} w={200} h={100} fill={'c00'} 
+              transform={t1} />
+            <Rect x={0} y={0} w={200} h={100} fill={'f99'} 
+              transform={t2} />
+            <Rect x={0} y={0} w={200} h={100} fill={'fdd'} 
+              transform={t3} />
+          </Surface>
+
+
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+リスト6-14
+render() {
+  const g1 = new LinearGradient({
+    '0.2': '#0000aa',
+    '0.8': '#66ffff'
+    },
+    100, 100, 300, 300
+  );
+  const g2 = new LinearGradient({
+    '0.2': '#ffff00',
+    '0.89': '#660000'
+    },
+    200, 0, 0, 200
+  );
+
+
+  return (
+    <View style={styles.base}>
+      <Header 
+        centerComponent={{ 
+          text:"SampleApp", 
+          style:styles.header
+        }}
+        outerContainerStyles={{ 
+          height:100, backgroundColor: '#dd0000' 
+        }}
+      />
+      
+      <View style={styles.body}>
+        <View style={styles.art}>
+
+
+          <Surface width={1000} height={1000}>
+            <Rect x={100} y={100} w={200} h={200} fill={g1} />
+            <Circle x={100} y={100} r={100} fill={g2} />
+          </Surface>
+
+
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+リスト6-15
+render() {
+  const r1 = new RadialGradient({
+    '0.1': '#ffff00',
+    '0.9': '#000099'
+    },
+    50, 50, 200, 200, 200, 200
+  );
+  const r2 = new RadialGradient({
+    '0.0': '#000',
+    '0.8': '#99ff99'
+    },
+    200, 200, 200, 200, 200, 200
+  );
+  return (
+    <View style={styles.base}>
+      <Header 
+        centerComponent={{ 
+          text:"SampleApp", 
+          style:styles.header
+        }}
+        outerContainerStyles={{ 
+          height:100, backgroundColor: '#dd0000' 
+        }}
+      />
+      
+      <View style={styles.body}>
+        <View style={styles.art}>
+
+
+          <Surface width={1000} height={1000}>
+            <Rect x={100} y={100} w={200} h={200} fill={r2} />
+            <Circle x={100} y={100} r={100} fill={r1} />
+          </Surface>
+
+
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+リスト6-16
+render() {
+  const r = new Path().move(50,50)
+    .arc(200, 200, 50, 75, 0, true);
+  const c = new Path().move(50,50)
+    .curve(500, 0, 0, 500, 300, 300);
+
+
+  return (
+    <View style={styles.base}>
+      <Header 
+        centerComponent={{ 
+          text:"SampleApp", 
+          style:styles.header
+        }}
+        outerContainerStyles={{ 
+          height:100, backgroundColor: '#dd0000' 
+        }}
+      />
+      
+      <View style={styles.body}>
+        <View style={styles.art}>
+
+
+          <Surface width={1000} height={1000}>
+            <Shape d={r} fill={'#ddf'} 
+              stroke={'blue'} strokeWidth={10} />
+            <Shape d={c} fill={'#f66'} 
+              stroke={'#900'} strokeWidth={10} />
+          </Surface>
+
+
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+リスト6-17
+render() {
+  var data = [];
+  for(var i = 0;i < 200; i++){
+    var x = Math.floor(Math.random() * 500);
+    var y = Math.floor(Math.random() * 500);
+    var r = Math.floor(Math.random() * 50);
+    data[i] = {'x':x, 'y':y, 'r':r};
+  }
+  
+  return (
+    <View style={styles.base}>
+      <Header 
+        centerComponent={{ 
+          text:"SampleApp", 
+          style:styles.header
+        }}
+        outerContainerStyles={{ 
+          height:100, backgroundColor: '#dd0000' 
+        }}
+      />
+      
+      <View style={styles.body}>
+        <View style={styles.art}>
+
+
+          <Surface width={1000} height={1000}>
+            <ClippingRectangle
+              width={200} height={200}
+              x={100} y={100} >
+            {data.map((val)=>(
+              <Circle x={val.x} y={val.y} r={val.r}
+                fill={'rgba(255,0,0,0.1)'}  />
+            ))}
+            </ClippingRectangle>
+          </Surface>
+
+
+        </View>
+      </View>
+    </View>
+  );
+}
+
+
+
+
+リスト6-18
+// import React, { Component } from 'react';
+// import { WebView } from 'react-native';
+
+
+class Canvas extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+
+  render() {
+    var render = this.props.render;
+    var size = this.props.size;
+
+
+    return (
+      <WebView
+        javaScriptEnabled={true}
+        style={this.props.style}
+        source={{
+          html:
+            '<html><head></head><body style="margin:0px">' +
+            '<canvas height="' + size.height + 
+            '" width="' + size.width + 
+            '"></canvas></body></html>' +
+            "<script>" + 
+              "var c = document.querySelector('canvas');" +
+              "(" + render + ")(c);" +
+            "</script>"
+        }}
+      />
+    );
+  }
+}
+
+
+
+
+リスト6-19
+import React, { Component } from 'react';
+import { StyleSheet, WebView, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+class Canvas extends Component {……略……}
+
+
+export default class App extends Component {
+
+
+  draw(canvas) {
+    var context = canvas.getContext('2d');
+    context.fillStyle = "#EEEEFF";
+    context.fillRect(0, 0, 300, 400);
+    var n = 0;
+    for(var i = 0; i < 10; i++) {
+        context.beginPath();
+        context.arc(i * 20, i * 30, i * 10, 0, 
+          Math.PI * 2, true);
+        context.closePath();
+        context.fillStyle = 'rgba(255, 0, 0, 0.2)';
+        context.fill();
+    }
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Graphics',
+    };
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <Canvas
+            render={this.draw}
+            size={{ width: 300, height:400 }}
+            style={styles.canvas}
+          />
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {……略……},
+  canvas: {
+    backgroundColor: "white",
+  },
+});
+
+
+
+
+リスト6-20
+draw(canvas) {
+  var context = canvas.getContext('2d');
+  context.fillStyle = 'rgba(0, 255, 0, 0.2)';
+  context.strokeStyle = 'rgba(0, 0, 255, 1.0)';
+  for(var i = 0; i < 10; i++) {
+      context.fillRect(i * 20, i * 30, 100, 100);
+      context.strokeRect(195 - i * 20, 5 + i * 30, 100, 100);
+  }
+}
+
+
+
+
+リスト6-21
+draw(canvas) {
+  var context = canvas.getContext('2d');
+  context.fillStyle = 'rgba(100, 255, 255, 1.0)';
+  context.strokeStyle = 'rgba(0, 0, 200, 1.0)';
+  context.beginPath();
+  context.moveTo(50, 100);
+  context.lineTo(300, 100);
+  context.lineTo(100, 250);
+  context.lineTo(175, 10);
+  context.lineTo(250, 250);
+  context.lineTo(50, 100);
+  context.closePath();
+  context.fill();
+  context.stroke();
+}
+
+
+
+
+リスト6-22
+draw(canvas) {
+  var draw2 = (context)=>{
+    for(var i = 0;i < 10;i++) {
+      context.rotate(Math.PI * 2 / 10);
+      context.fillRect(10, -10, 50, 50);
+    }
+  };
+
+
+  var context = canvas.getContext('2d');
+  context.save();
+
+
+  context.translate(100, 100);
+  context.fillStyle = 'rgba(0, 255, 255, 0.15)';
+  draw2(context);
+
+
+  context.restore();
+  context.save();
+  context.translate(200, 200);
+  context.fillStyle = 'rgba(255, 0, 255, 0.15)';
+  draw2(context);
+
+
+  context.restore();
+  context.save();
+  context.translate(100, 300);
+  context.fillStyle = 'rgba(0, 255, 0, 0.15)';
+  draw2(context);
+
+
+  context.restore();
+}
+
+
+
+
+リスト6-23
+draw(canvas) {
+  var context = canvas.getContext('2d');
+
+
+  var g1 = context.createLinearGradient(200,50,200,200);
+  g1.addColorStop(0.0, '#990000');
+  g1.addColorStop(0.9, '#ffff99');
+  context.fillStyle = g1;
+  context.fillRect(50, 50, 150, 150);
+
+
+  var g2 = context.createRadialGradient(270, 270, 0, 230, 230, 100);
+  g2.addColorStop(0.1, '#006600');
+  g2.addColorStop(0.9, '#66ffff');
+  context.fillStyle = g2;
+  context.fillRect(150, 150, 150, 150);
+}
+
+
+
+
+リスト6-24
+draw(canvas) {
+  var context = canvas.getContext('2d');
+  
+  context.fillStyle = 'red';
+  context.strokeStyle = 'blue';
+  context.lineWidth = 2;
+  context.font = "bold 48pt Helvetica";
+  context.fillText('Hello!', 50, 100);
+  context.strokeText('Canvas', 50, 200);
+}
+
+
+
+
+リスト7-1
+import React, { Component } from 'react';
+import { StyleSheet, ART, View, Text } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+const {Surface, Shape, Group, Path, Transform} = ART;
+
+
+class Circle extends Component {……略……}
+
+
+class Rect extends Component {……略……}
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.w = 300; // Surfaceの横幅
+    this.h = 300; // Surfaceの高さ
+    this.state = {
+      title:'Graphics',
+      x:50, y:50, t:100
+    };
+    this.setNum();
+    setInterval(this.fn, 50);
+  }
+  
+  setNum() {
+    this.t = Math.floor(Math.random() * 300) + 100;
+    this.dx = Math.floor(Math.random() * 5) + 1;
+    this.dy = Math.floor(Math.random() * 5) + 1;
+  }
+  
+  fn = ()=>{
+    if (this.t == undefined){ this.t = 100; }
+    this.t -= 1;
+    if (this.t == 0){ this.setNum(); }
+    var x = this.state.x;
+    var y = this.state.y;
+    if (x < 50 || x > this.w - 50){
+      this.dx *= -1;
+      x += this.dx;
+    }
+    if (y < 50 || y > this.h - 50){
+      this.dy *= -1;
+      y += this.dy;
+    }
+    x += this.dx;
+    y += this.dy;
+    this.setState({
+      x:x, y:y
+    });
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+
+
+          <Surface width={this.w} height={this.h}
+            style={styles.art}>
+            <Rect x={0} y={0} w={this.w} h={this.h} fill={'#fff'} />
+            <Circle x={this.state.x} y={this.state.y}
+              r={50} fill={'#99f'} />
+          </Surface>
+
+
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold'
+  },
+  art: {
+    flex:1,
+    backgroundColor:'ddd',
+  },
+
+
+});
+
+
+
+
+リスト7-2
+import TimerMixin from 'react-timer-mixin';
+const createReactClass = require('create-react-class');
+
+
+// Circleクラス
+var Circle = createReactClass({
+  mixins: [TimerMixin],
+  componentDidMount: function() {
+    var t = this.setInterval(()=>{
+      console.log('Circle: ' + this. props.x + ',' + this.props.y);
+    }, 100);
+    this.setTimeout(() => {
+      this.clearInterval(t);
+      console.log('Circle interval clear!');
+    }, 5000);
+  },
+  render: function(){
+    var {x, y, r, ...etc} = this.props;
+    var c = new Path()
+      .move(x , y - r)
+      .arc(0, r * 2, r)
+      .arc(0, r * -2, r)
+      .close(); 
+    return <Shape d={c} {...etc} />;
+  }
+});
+
+
+
+
+リスト7-3
+import React, { Component } from 'react';
+import { StyleSheet, ART, View, Text, Alert, Platform } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { TouchableHighlight, TouchableOpacity, 
+    TouchableNativeFeedback, TouchableWithoutFeedback, } from 'react-native';
+
+
+export default class App extends Component {
+ 
+  constructor(props) {……略……}
+
+
+  pressHighlight() {
+    Alert.alert('Touchable Highlight!');
+  }
+  pressOpacity() {
+    Alert.alert('Touchable Opacity!');
+  }
+  pressNativeFeedback() {
+    Alert.alert('Touchable Native Feedback!');
+  }
+  pressWithoutFeedback() {
+    Alert.alert('Touchable Without Feedback!');
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+        
+        <View style={styles.body}>
+
+
+          <TouchableHighlight onPress={this.pressHighlight} 
+              underlayColor="white">
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Touchable Highlight</Text>
+            </View>
+          </TouchableHighlight>
+
+
+          <TouchableOpacity onPress={this.pressOpacity}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Touchable Opacity</Text>
+            </View>
+          </TouchableOpacity>
+
+
+          <TouchableNativeFeedback
+              onPress={this.pressNativeFeedback} 
+              background={TouchableNativeFeedback.SelectableBackground()}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Touchable Native Feedback</Text>
+            </View>
+          </TouchableNativeFeedback>
+
+
+          <TouchableWithoutFeedback
+              onPress={this.pressWithoutFeedback}>
+            <View style={styles.button}>
+              <Text style={styles.buttonText}>Touchable Without Feedback</Text>
+            </View>
+          </TouchableWithoutFeedback>
+
+
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {……略……},
+  button: {
+    margin:10,
+  },
+  buttonText: {
+    fontSize: 24,
+  }
+});
+
+
+
+
+リスト7-4
+import React, { Component } from 'react';
+import { StyleSheet, Animated, View, Text, } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Graphics',
+      fadeAnim:new Animated.Value(1.0),
+      resizeAnim:new Animated.Value(16),
+    };
+  }
+
+
+  anim = ()=>{
+    Animated.timing(
+      this.state.fadeAnim,
+      {
+        toValue: 0,
+        duration: 5000,
+      }
+    ).start();
+    Animated.timing(
+      this.state.resizeAnim,
+      {
+        toValue: 70,
+        duration: 5000,
+      }
+    ).start();
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略……  />
+        
+        <View style={styles.body}>
+          <Animated.Text onPress={this.anim} 
+            style={{
+              color:'#a00',
+              opacity:this.state.fadeAnim,
+              fontSize:this.state.resizeAnim,
+            }}>ANIMATION!</Animated.Text>
+        </View>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({ ……略…… });
+
+
+
+
+リスト7-5
+anim = ()=>{
+  // １つ目のアニメーション
+  Animated.loop(
+    Animated.sequence([
+      Animated.timing(
+        this.state.fadeAnim, 
+        {
+          toValue: 0,
+          duration: 3000
+      }),
+      Animated.timing(this.state.fadeAnim,
+        {
+          toValue: 1,
+          duration: 3000
+        })
+    ]),
+    {
+      iterations: 3
+    }
+  ).start();
+  // ２つ目のアニメーション
+  Animated.loop(
+    Animated.sequence([
+      Animated.timing(
+        this.state.resizeAnim, 
+        {
+          toValue: 70,
+          duration: 3000
+      }),
+      Animated.timing(this.state.resizeAnim,
+        {
+          toValue: 16,
+          duration: 3000
+        })
+    ]),
+    {
+      iterations: 3
+    }
+  ).start();
+}
+
+
+
+
+リスト7-6
+import React, { Component } from 'react';
+import { StyleSheet, Animated, Easing, TouchableOpacity, 
+        View, Text, } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Graphics',
+      animW:new Animated.Value(100),
+      animP:new Animated.Value(50),
+      animR:new Animated.Value(0),
+    };
+  }
+
+
+  anim = ()=>{
+    Animated.timing(
+      this.state.animW,
+      {
+        toValue: 300,
+        duration: 7000,
+      }
+    ).start(({finished}) => {
+      Animated.timing(
+        this.state.animW,
+        {
+          toValue: 100,
+          duration: 3000,
+        }
+      ).start();
+    });
+    Animated.timing(
+      this.state.animP,
+      {
+        toValue: 300,
+        duration: 3000,
+      }
+    ).start(({finished}) => {
+      Animated.timing(
+        this.state.animP,
+        {
+          toValue: 50,
+          duration: 7000,
+        }
+      ).start();
+    });
+    Animated.timing(
+      this.state.animR,
+      {
+        toValue: Math.PI * 2,
+        duration: 10000,
+      }
+    ).start(({finished}) => {
+      Animated.timing(
+        this.state.animR,
+        {
+          toValue: 0,
+          duration: 2000,
+        }
+      ).start();
+    });
+  }
+
+
+  doAction = ()=>{
+    console.log('doAction');
+    this.anim();
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"SampleApp", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor: '#dd0000' 
+          }}
+        />
+        
+        <View style={styles.body}>
+            <TouchableOpacity onPress={this.doAction} style={{height:500}}>
+            <Animated.View style={{
+              color:'#foo',
+              backgroundColor:'#f00',
+              width:this.state.animW,
+              height:100,
+            }} />
+            <Animated.View style={{
+              color:'#foo',
+              backgroundColor:'#0f0',
+              width:100,
+              height:100,
+              transform: [
+                {translateX:this.state.animP},
+                {translateY:this.state.animP},
+              ]
+            }} />
+            <Animated.View style={{
+              color:'#foo',
+              backgroundColor:'#00f',
+              width:100,
+              height:100,
+              transform: [
+                {translateX:100},
+                {translateY:100},
+                {rotate: this.state.animR},
+              ]
+            }} />
+            </TouchableOpacity>
+        </View>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({……略……});
+
+
+
+
+リスト7-7
+import React, { Component } from 'react';
+import { StyleSheet, ART, Animated, View, Text, } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+const { Surface, Shape, Group, Path, Transform } = ART;
+
+
+class Circle extends Component { ……略…… }
+
+
+class Rect extends Component { ……略…… }
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.lastX = 0;
+    this.lastY = 0;
+    this.state = {
+      title:'Graphics',
+      animX:new Animated.Value(0),
+      animY:new Animated.Value(0),
+    };
+  }
+
+
+  grantedEvent = (ev)=>{
+    this.lastX = ev.nativeEvent.locationX - 50;
+    this.lastY = ev.nativeEvent.locationY - 50; 
+    this.anim();
+  }
+
+
+  anim = ()=>{
+    console.log('anim start');
+    Animated.timing(
+      this.state.animX,
+      {
+        toValue: this.lastX,
+        duration: 3000,
+      }
+    ).start();
+    Animated.timing(
+      this.state.animY,
+      {
+        toValue: this.lastY,
+        duration: 3000,
+      }
+    ).start();
+
+
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+        
+        <View style={styles.body}
+          onStartShouldSetResponder={(ev) => true}
+          onResponderGrant={(ev)=>this.grantedEvent(ev)} >
+
+
+          <Animated.View 
+            style={{
+              transform: [
+                {translateX:this.state.animX},
+                {translateY:this.state.animY},
+              ]
+            }}>
+            
+            <Surface width={100} height={100}>
+              <Circle x={50} y={50} r={50} fill={'#99f'} />
+            </Surface>
+
+
+          </Animated.View>
+
+
+        </View>
+
+
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:0,flex:1, backgroundColor:'white'},
+  header: { ……略…… },
+});
+
+
+
+
+リスト7-8
+import React, { Component } from 'react';
+import { StyleSheet, View, ScrollView, Text, TextInput, Button } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.input = '';
+    this.state = {
+      title:'Graphics',
+      text:'fetch data...',
+    };
+  }
+
+
+  doType = (text) => this.input = text;
+
+
+  doAction = ()=>{
+    var id = this.input == '' ? '1' : this.input;
+    fetch('https://jsonplaceholder.typicode.com/users/' + id,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then((response)=>{
+      response.text().then((txt)=>{
+        this.setState({text:txt});
+      });
+    });
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+
+
+        <View style={styles.body}>
+          <ScrollView style={{flex:1}}>
+            <Text style={styles.message}>
+              {this.state.text}
+            </Text>
+          </ScrollView>
+          <View  style={{flex:1}}>
+          <TextInput style={styles.input} 
+          placeholder='type id number:'
+          onChangeText={this.doType} />
+          <Button title="Click" onPress={this.doAction} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { margin:10,flex:1, backgroundColor:'white'},
+  header: { ……略……  },
+  message: {
+    margin:10,
+    fontSize: 24,
+  },
+  input: {
+    margin:10,
+    fontSize: 24,
+  },
+
+
+});
+
+
+
+
+リスト7-9
+doAction = ()=>{
+  var id = this.input == '' ? '1' : this.input;
+  fetch('https://jsonplaceholder.typicode.com/users/' + id,
+    {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then((response)=>{
+    response.json().then((json)=>{
+      this.setState({text:json.name + '\n' + json.email + 
+        '\n' + json.phone});
+    });
+  });
+}
+
+
+
+
+リスト7-10
+import { FileSystem } from 'expo';
+import React, { Component } from 'react';
+import { StyleSheet, View, ScrollView, Alert, 
+    Text, TextInput, Button } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.input = '';
+    this.state = {
+      title:'Graphics',
+      text:'file access...',
+    };
+  }
+  
+  doType = (text) => this.input = text;
+  
+  doSave = ()=>{
+    var contents = this.input;
+    var path = FileSystem.documentDirectory + 'data.txt';
+    FileSystem.writeAsStringAsync(path, contents)
+      .then((value)=>{
+        Alert.alert('saved!');
+      });
+  }
+
+
+  doLoad = ()=>{
+    var path = FileSystem.documentDirectory + 'data.txt';
+    FileSystem.readAsStringAsync(path).then((value)=>{
+      this.setState({text:value});
+      Alert.alert('loaded!');
+    });
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+        <View style={styles.body}>
+          <ScrollView style={{flex:1}}>
+          <Text style={styles.message}>
+            {this.state.text}
+          </Text>
+          </ScrollView>
+          <View  style={{flex:4}}>
+          <TextInput style={styles.input} 
+          placeholder='type id number:'
+          onChangeText={this.doType} />
+            <Button title="Save to File" onPress={this.doSave} />
+          <View style={{padding:10}} />
+          <Button title="Load from File" onPress={this.doLoad} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({ ……略…… });
+
+
+
+
+リスト7-11
+import React, { Component } from 'react';
+import { StyleSheet, View, ScrollView, Alert, 
+    AsyncStorage, Text, TextInput, Button } from 'react-native';
+import { Header, } from 'react-native-elements';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      title:'Graphics',
+      text:'database access!',
+      id:'',
+      name:'',
+      mail:'',
+    };
+  }
+  
+  doId = (text) => this.setState({id:text});
+  doName = (text) => this.setState({name:text});
+  doMail = (text) => this.setState({mail:text});
+  
+  doPut = async()=>{
+    try {
+      var count = await AsyncStorage.getItem('MyData_count');
+      if (count == null) { count = 1; }
+      var data = {
+        name:this.state.name, 
+        mail:this.state.mail
+      };
+      await AsyncStorage.setItem('MyData_' + count, JSON.stringify(data));
+      await AsyncStorage.setItem('MyData_count', '' + (count + 1));
+      this.setState({
+        id:'',
+        name:'',
+        mail:'',
+      });
+      console.log('6');
+      Alert.alert('put data!');
+    } catch (error) {
+      console.log(error);
+      Alert.alert(error);
+    }
+  }
+
+
+  doGet = ()=>{
+    try {
+     AsyncStorage.getItem('MyData_' + this.state.id)
+      .then((data)=>{
+        if (data !== null) {
+          var obj = JSON.parse(data);
+          this.setState({
+            name:obj.name,
+            mail:obj.mail,
+          });
+        } else {
+          Alert.alert('no data!');
+        }
+      });
+    } catch (error) {
+     console.log(error);
+     Alert.alert(error);
+    }
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header ……略…… />
+        <View style={styles.body}>
+          <Text style={styles.message}>
+            {this.state.text}
+          </Text>
+          <View  style={{flex:4}}>
+
+
+          <TextInput style={styles.input} 
+            placeholder='ID:' 
+            value={this.state.id}
+            onChangeText={this.doId} />
+
+
+          <TextInput style={styles.input} 
+            placeholder='NAME:' 
+            value={this.state.name}
+            onChangeText={this.doName} />
+
+
+          <TextInput style={styles.input} 
+            placeholder='MAIL ADDRESS:' 
+            value={this.state.mail}
+            onChangeText={this.doMail} />
+
+
+          <Button title="PUT DATA" onPress={this.doPut} />
+          <View style={{padding:10}} />
+          <Button title="GET DATA" onPress={this.doGet} />
+
+
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({ ……略…… });
+
+
+
+
+リスト8-1
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, WebView, StatusBar, 
+    TouchableOpacity, Text, View } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { createStackNavigator } from 'react-navigation';
+
+
+window.DOMParser = require('xmldom').DOMParser;
+
+
+// RSS名
+const site_items = ['主なニュース','国際ニュース',
+  '国内ニュース', '経済関係', 'スポーツ', 'IT関連','科学技術'];
+// RSSアドレス
+const site_links = [
+  'https://news.yahoo.co.jp/pickup/rss.xml',
+  'https://news.yahoo.co.jp/pickup/world/rss.xml',
+  'https://news.yahoo.co.jp/pickup/domestic/rss.xml',
+  'https://news.yahoo.co.jp/pickup/economy/rss.xml',
+  'https://news.yahoo.co.jp/pickup/sports/rss.xml',
+  'https://news.yahoo.co.jp/pickup/computer/rss.xml',
+  'https://news.yahoo.co.jp/pickup/science/rss.xml'
+];
+var sel_index = 0; // 選択index
+var access_url = ''; // 選択url
+
+
+// サイトの一覧表示画面
+class Home extends React.Component {
+  
+  static navigationOptions = {
+    title: 'Yahoo! news',
+    headerStyle:{backgroundColor:'#0000aa',},
+    headerTintColor:'white',
+  };
+
+
+  constructor(props) {
+    super(props);
+  }
+    
+  getView = (item, i)=>(
+    <TouchableOpacity onPress={()=>this.goNews(i)} >
+    <View style={styles.site}>
+      <Text
+        style={{fontSize:32}}>{i+1}. {item}</Text>
+    </View>
+    </TouchableOpacity>)
+  
+  goNews = (n)=>{
+    sel_index =n;
+    this.props.navigation.navigate('Genre');
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <ScrollView>
+            {site_items.map((item,i)=>this.getView(item,i))}
+          </ScrollView>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+// 選択したサイトのニュース一覧画面
+class Genre extends React.Component {
+
+
+  items = [];
+
+
+  static navigationOptions = {
+    title: site_items[sel_index],
+    headerStyle:{backgroundColor:'#00aa00', },
+    headerTintColor:'white',
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      items:[{title: 'wait...', link:'', pubDate:''}],
+    }
+    var items = [];
+    fetch(site_links[sel_index]).then((response)=>{
+      response.text().then((txt)=>{
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(txt);
+        var maintitle = xml.getElementsByTagName("title")[0]
+          .childNodes[0].nodeValue;
+        var elements = xml.getElementsByTagName("item");
+        for(var i = 0;i < elements.length;i++) {
+          var item = elements[i];
+          var title =  item.getElementsByTagName('title')[0]
+            .childNodes[0].nodeValue;
+          var link =  item.getElementsByTagName('link')[0]
+            .childNodes[0].nodeValue;
+          var pubDate =  item.getElementsByTagName('pubDate')[0]
+            .childNodes[0].nodeValue;
+          items[i] = {
+            title:title, link:link, pubDate:pubDate,
+          }
+        }
+        this.setState({items:items});
+      });
+    });
+  }
+    
+  getView = (item, i)=>(
+    <TouchableOpacity onPress={()=>this.goContent(i)}>
+    <View style={styles.item}>
+      <Text style={{fontSize:24}}>{item.title}</Text>
+      <Text style={{fontSize:16}}>{item.pubDate}</Text>
+    </View>
+    </TouchableOpacity>);
+  
+  goContent = (n)=>{
+    access_url = this.state.items[n].link;
+    this.props.navigation.navigate('Content');
+  }
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <ScrollView>
+            {this.state.items.map((item, i)=>this.getView(item,i))}
+            </ScrollView>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+// 選択したニュースのWebページを表示する画面
+class Content extends React.Component {
+
+
+  static navigationOptions = {
+    title: '選択コンテンツの内容',
+    headerStyle:{backgroundColor:'#aa0000', },
+    headerTintColor:'white',
+  }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {html:''};
+    fetch(access_url).then((response)=>{
+      response.text().then((txt)=>{
+        var re = /<a class="newsLink" href="([\w-?:./=]+)"/;
+        var arr = txt.match(re);
+        this.setState({html:arr[1]});
+      });
+    });
+  }
+  
+  render() {
+    return (
+      <View style={styles.base}>
+        <View style={styles.body}>
+          <WebView
+            source={{uri: this.state.html}}
+            javaScriptEnabled={true} />
+        </View>
+      </View>
+    );
+  }
+}
+
+
+// ナビゲーション
+export default createStackNavigator(
+  {
+    Home: { screen: Home },
+    Genre: { screen: Genre },
+    Content: { screen: Content },
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'white'},
+  site: {
+    margin:5,
+    padding: 10,
+    backgroundColor:'#ddf',
+  },
+  item: {
+    margin:5,
+    padding: 10,
+    backgroundColor:'#dfd',
+  },
+});
+
+
+
+
+リスト8-2
+constructor(props) {
+  super(props);
+  this.state = {html:''};
+  fetch(access_url).then((response)=>{
+    response.text().then((txt)=>{
+      fetch(access_url).then((response2)=>{
+        response2.text().then((txt2)=>{
+      this.setState({html:txt2});
+        });
+      });
+    });
+  });
+}
+
+
+
+
+リスト8-3
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, WebView, 
+    View, Button, Text,  } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { Constants, BarCodeScanner, Permissions } from 'expo';
+
+
+export default class App extends Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {permission:false};
+  }
+
+
+  componentDidMount() {
+    this.setPermission();
+  }
+
+
+  doAction = ()=>{
+    this.setState({
+      visible:true,
+    })
+  }
+
+
+  setPermission = ()=>{
+    const p = Permissions.askAsync
+        (Permissions.CAMERA).then((value)=>{
+      this.setState({
+        permission: p.status == 'granted',
+        visible: false,
+      });
+    });
+  };
+
+
+  onQRCode = (qr)=>{
+    this.setState({
+      visible:false,
+      uri:qr.data,
+    });
+  };
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"QR Browser", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor:'#00a' 
+          }}
+        />
+
+
+        <View style={styles.body}>
+          <View style={styles.camera}>
+            {this.state.visible ? 
+            <TouchableOpacity onPress={()=>
+                {this.setState({visible:false})}}>
+              <BarCodeScanner
+                torchMode="off"
+                onBarCodeRead={this.onQRCode}
+                style={{ height: 150, width: 200 }}
+                />
+            </TouchableOpacity>
+            : 
+            <TouchableOpacity onPress={this.doAction}>
+              <View style={styles.camera}>
+                <Text style={{fontSize:24}}>Scan!</Text>
+              </View>
+            </TouchableOpacity>
+            }
+          </View>
+          <View style={styles.content}>
+          <WebView style={styles.data}
+            source={{ uri: this.state.uri }}
+            javaScriptEnabled={true} />
+          </View>
+        </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { padding:10,flex:1, backgroundColor:'#ddd'},
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold',
+  },
+  camera: {
+    height:150,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'gray',
+  },
+  content: {
+    flex: 1,
+    backgroundColor:'black',
+  },
+  data: {
+    margin: 2,
+    backgroundColor:'white',
+  }
+});
+
+
+
+
+リスト8-4
+function doGet(e) {
+  return ContentService.createTextOutput('not posted');
+}
+
+
+function doPost(e) {
+  var data = JSON.parse(e.postData.contents);
+  if (data.sendto != undefined && 
+      data.latitude != undefined && 
+      data.longitude != undefined && 
+      data.yourname != undefined){
+    sendMail(data.sendto, 'ここにいるよ！', data.yourname + 
+             ' だよ。\n今、ここにいるよ。', data.latitude, data.longitude);
+    return ContentService.createTextOutput('ok');
+  } else {
+    return ContentService.createTextOutput('not mailed');
+  }
+}
+
+
+// メール送信
+function sendMail(mail,title,content,lat,lng) {
+  var p_content = '<p>' + content.split('\n').join('</p><p>') + '</p>';
+  var options = {
+    to: mail,
+    subject: title,
+    htmlBody: p_content,
+  }
+  options.htmlBody += '<img src="cid:map">';
+  options.inlineImages = {
+    map:Maps.newStaticMap()
+    .setLanguage('ja')
+    .setSize(400, 300)
+    .setZoom(16)
+    .setCenter(lat,lng)
+    .addMarker(lat,lng).getBlob()
+  };
+  MailApp.sendEmail(options); 
+}
+
+
+// マップの取得
+function getMap(lat,lng,w,h) {
+  return Maps.newStaticMap()
+    .setLanguage('ja')
+    .setSize(w,h)
+    .setZoom(16)
+    .setCenter(lat,lng)
+    .addMarker(lat,lng);
+}
+
+
+
+
+リスト8-5
+import React, { Component } from 'react';
+import { StyleSheet, AsyncStorage, Alert, TextInput, Text, 
+    View, Picker, Button, } from 'react-native';
+import { Header, } from 'react-native-elements';
+import { Permissions, MapView, Location, Contacts } from 'expo';
+
+
+export default class App extends Component {
+  url = ' ……作成したWebアプリのアドレスを指定…… '; // ●
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      yourname: '',
+      permission: false,
+      setup: false,
+      lat: 0,
+      lng: 0,
+      picked: 0,
+      contact:[],
+    };
+    this.getYourname();
+    this.setPermission();
+  }
+
+
+  // 保管された名前の取得
+  getYourname = ()=>{
+    AsyncStorage.getItem('yourname')
+      .then((value)=>{
+        this.setState({yourname:value});
+      });
+  }
+
+
+  // パーミッションの設定
+  setPermission = ()=>{
+    Permissions.askAsync(Permissions.LOCATION).then((p)=>{
+      Permissions.askAsync(Permissions.CONTACTS).then((p2)=>{
+        this.setState({
+          permission: p.status == 'granted' && p2.status == 'granted',
+        });
+        this.contact();
+        this.location();
+      });
+
+
+    });
+  };
+
+
+  // 位置情報の取得
+  location = ()=>{
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          error: null,
+          setup:true,
+        });
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
+    );
+  }
+
+
+  // コンタクト情報の取得
+  contact = ()=>{
+    const data = Contacts.getContactsAsync({
+      fields: [
+        Contacts.PHONE_NUMBERS,
+        Contacts.EMAILS,
+      ],
+    }).then((data)=>{
+      var member = [];
+      for(var i =0;i < data['data'].length;i++){
+        var value = data['data'][i];
+        if (value['emails'] != undefined && value['emails'].length > 0 ){
+          member.push({'name': value['name'],
+            'email': value['emails'][0]['email']});
+        }
+      }
+      this.setState({
+        contact:member,
+      });
+    });
+  }
+
+
+  // メールの送信
+  sendMail = ()=>{
+    const sendto = this.state.contact[this.state.picked];
+    fetch(this.url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        'sendto':sendto['email'],
+        'yourname':this.state.yourname,
+        'latitude':this.state.lat,
+        'longitude': this.state.lng,
+      }),
+    }).then((response)=>{
+      response.text().then((txt)=>{
+        if (txt == 'ok'){
+          Alert.alert('送信しました。');
+        } else {
+          Alert.alert('問題が発生しました。');
+        }
+      });
+    });
+  }
+  
+  onType = (value)=>{
+    this.setState({yourname: value});
+    AsyncStorage.setItem('yourname', value);
+  }
+
+
+  onPick = (itemValue, itemIndex)=>
+      this.setState({picked: itemIndex, })
+  
+  getItems = ()=>
+    this.state.contact.map((value, index)=>(
+      <Picker.Item label={value['name']} value={index} />
+    ))
+
+
+  render() {
+    return (
+      <View style={styles.base}>
+        <Header 
+          centerComponent={{ 
+            text:"I'm here!", 
+            style:styles.header
+          }}
+          outerContainerStyles={{ 
+            height:100, backgroundColor:'#00a' 
+          }}
+        />
+      
+      <View style={styles.body}>
+      {this.state.setup ?
+        <MapView
+          style={{ width:'95%', height:200, margin:10 }}
+          initialRegion={{
+            latitude: this.state.lat,
+            longitude: this.state.lng,
+            latitudeDelta: 0.0025,
+            longitudeDelta: 0.0025,
+          }}
+        />
+        : 
+        <View>
+          <Text style={{fontsize:24}}>please wait...</Text>
+        </View>
+        }
+        <View style={{width:'95%',}}>
+          <TextInput style={styles.input} value={this.state.yourname} 
+            onChangeText={this.onType} />
+          <Picker selectedValue={this.state.picked} onValueChange={this.onPick}>
+            {this.getItems()}
+          </Picker>
+
+
+          <Button title="send now!" 
+            onPress={()=>this.sendMail()} />
+        </View>
+
+
+      </View>
+      </View>
+    );
+  }
+}
+
+
+const styles = StyleSheet.create({
+  base: { padding:0, flex:1, backgroundColor:'#ddd'},
+  body: { margin:10,flex:1, 
+    backgroundColor:'#fff',
+    alignItems: 'center',
+  },
+  header: {
+    color: 'white',
+    fontSize: 28,
+    fontWeight:'bold',
+  },
+  input: {
+    margin: 5,
+    fontSize:24,    
+  }
+});

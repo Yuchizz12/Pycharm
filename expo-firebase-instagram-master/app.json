@@ -1,0 +1,60 @@
+{
+  "expo": {
+    "name": "expo-firebase-instagram",
+    "description": "A very interesting project.",
+    "slug": "expo-firebase-instagram",
+    "privacy": "public",
+    "sdkVersion": "30.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "primaryColor": "#000",
+    "extra": {
+      "ga": "UA-XXXXXX-X",
+      "backgroundColor": "#fafafa",
+      "textColor": "#454545",
+      "firebase": {
+        "apiKey": "xxxxxxxxxxxxxx",
+        "authDomain": "xxxxxxxxxxxxxx",
+        "databaseURL": "xxxxxxxxxxxxxx",
+        "projectId": "xxxxxxxxxxxxxx",
+        "storageBucket": "xxxxxxxxxxxxxx",
+        "messagingSenderId": "xxxxxxxxxxxxxx"
+      }
+    },
+    "locales": {
+      "ja": "./languages/ja.json",
+      "en": "./languages/en.json"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "your team short name here",
+            "project": "your project short name here",
+            "authToken": "your auth token here"
+          }
+        }
+      ]
+    }
+  }
+}
